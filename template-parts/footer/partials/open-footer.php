@@ -1,20 +1,17 @@
 <?php
 /**
- * Footer template
+ * Footer opening tags and before footer actions.
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
  * @since Controlled_Chaos 1.0.0
- *
  */
 
 namespace Controlled_Chaos;
 
-// No direct access, please
+// Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-get_template_part( 'template-parts/footer/footer' );
-$cct_footer = new Controlled_Chaos_Footer; ?>
+do_action( 'cct_before_footer' );
 
-</body>
-</html>
+echo '<footer>', "\r";
