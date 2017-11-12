@@ -367,30 +367,20 @@ h2 + .search-form {
 	margin-left: auto;
 }
 
-.prev-comments a:before,
-.prev-comments a:after,
-.next-comments a:before,
-.next-comments a:after {
-	display: inline-block;
-	font-family: 'FontAwesome';
-	text-decoration: none;
-}
-
-.prev-comments a:before {
-	content: '\f060';
-	margin-right: 0.5em;
-}
-
-.next-comments a:after {
-	content: '\f061';
-	margin-left: 0.5em;
-}
-
 .reply {}
 
 .comment-reply-link {}
 
 .comments {}
+
+.comment-form-comment {
+	margin-top: 1em;
+}
+
+.comment-form-comment label {
+	line-height: 1.5;
+	font-weight: bold;
+}
 	
 ol.comment-list {
 	list-style: none;
