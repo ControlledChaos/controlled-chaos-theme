@@ -50,14 +50,16 @@ $logo = apply_filters( 'cct_logo', $output );
 /**
  * Output header content.
  */
-do_action( 'cct_before_header_content' );
-if ( has_custom_logo() ) : ?>
-    <div class="site-logo">
-        <?php echo $logo; ?>
-    </div>
+do_action( 'cct_before_header_content' ); ?>
+    <div class="wrapper header-content">
+    <?php if ( has_custom_logo() ) : ?>
+        <div class="site-logo">
+            <?php echo $logo; ?>
+        </div>
 <?php endif; ?>
     <div class="site-title-description">
-        <?php echo $site_title, "\r"; ?>
-        <?php echo $site_description, "\r"; ?>
-    </div>
+            <?php echo $site_title, "\r"; ?>
+            <?php echo $site_description, "\r"; ?>
+        </div>
+    </div><!-- header-content -->
 <?php do_action( 'cct_after_header_content' );

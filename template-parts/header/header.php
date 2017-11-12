@@ -26,6 +26,11 @@ class Controlled_Chaos_Header {
 
     }
 
+    /**
+	 * Header partials.
+     * 
+     * @since Controlled_Chaos 1.0.0
+	 */
     public function partials() {
 
         // Header opening tags and before header actions.

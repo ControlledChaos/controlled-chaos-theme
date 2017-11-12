@@ -28,6 +28,11 @@ class Controlled_Chaos_Footer {
 
     }
 
+    /**
+	 * Footer partials.
+     * 
+     * @since Controlled_Chaos 1.0.0
+	 */
     public function partials() {
 
         // Footer opening tags and before footer actions.

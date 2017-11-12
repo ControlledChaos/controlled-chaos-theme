@@ -76,7 +76,8 @@ body {
 	line-height: 1;
 }
 
-.center-wrapper {
+.wrapper {
+	max-width: 1280px;
 	margin: 0 auto;
 }
 

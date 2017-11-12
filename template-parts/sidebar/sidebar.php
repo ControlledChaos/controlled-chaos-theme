@@ -24,6 +24,11 @@ class Controlled_Chaos_Sidebar {
 
     }
 
+    /**
+	 * Sidebar partials.
+     * 
+     * @since Controlled_Chaos 1.0.0
+	 */
     public function partials() {
 
         // Sidebar opening tags and before sidebar actions.
