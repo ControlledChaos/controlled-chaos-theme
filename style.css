@@ -73,14 +73,15 @@ body {
 	background: #fff;
 	font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 1.6rem;
-	line-height: 1;
 }
 
 .wrapper {
 	max-width: 1280px;
 	margin: 0 auto;
+	padding: 2rem;
 }
 
+.entry-content,
 h1,
 h2,
 h3,
@@ -91,11 +92,14 @@ p,
 ul,
 ol {
 	margin-top: 1em;
+	line-height: 1.5;
 }
 
 .entry-content ul,
-.entry-content ol {
-	margin-right: 1em;
+.sidebar-widgets ul,
+.entry-content ol,
+.sidebar-widgets ol {
+	margin-left: 1em;
 }
 
 /*--------------------------------------------------------------
@@ -334,3 +338,197 @@ h2 + .search-form {
 }
 
 .search-submit {}
+
+/*--------------------------------------------------------------
+# COMMENTS
+--------------------------------------------------------------*/
+.comments-section {
+	margin-top: 2em;
+	clear: both;
+}
+
+.comments-title {}
+
+.comments-nav {
+	display: flexbox;
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 1em;
+}
+
+.next-comments,
+.prev-comments {
+	display: block;
+	width: 50%;
+}
+
+.next-comments {
+	text-align: right;
+	margin-left: auto;
+}
+
+.prev-comments a:before,
+.prev-comments a:after,
+.next-comments a:before,
+.next-comments a:after {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	text-decoration: none;
+}
+
+.prev-comments a:before {
+	content: '\f060';
+	margin-right: 0.5em;
+}
+
+.next-comments a:after {
+	content: '\f061';
+	margin-left: 0.5em;
+}
+
+.reply {}
+
+.comment-reply-link {}
+
+.comments {}
+	
+ol.comment-list {
+	list-style: none;
+}
+
+ol.comment-list li {
+	margin-top: 2em;
+}
+
+ol.comment-list li.alt {}
+
+ol.comment-list li.bypostauthor {}
+
+ol.comment-list li.byuser {}
+
+ol.comment-list li.comment-author-admin {}
+
+ol.comment-list li.comment {}
+
+ol.comment-list li.comment div.comment-author {}
+
+ol.comment-list li.comment div.vcard {}
+
+ol.comment-list li.comment div.vcard cite.fn {}
+
+ol.comment-list li.comment div.vcard cite.fn a.url {}
+
+ol.comment-list li.comment div.vcard img.avatar {
+	vertical-align: middle;
+}
+
+ol.comment-list li.comment div.vcard img.avatar-32 {}
+
+ol.comment-list li.comment div.vcard img.photo {}
+
+ol.comment-list li.comment div.vcard span.says {}
+
+ol.comment-list li.comment div.commentmetadata {}
+
+ol.comment-list li.comment div.comment-metadata {
+	margin-top: 1em;
+}
+
+.comment-edit-link {
+	font-size: 85%;
+	margin-left: 0.5em;
+}
+
+.comment-edit-link:after {
+	display: inline-block;
+	margin-left: 0.3em;
+	transform: translateY(-0.3em);
+	font-family: 'FontAwesome';
+	content: '\f040';
+	text-decoration: none;
+}
+
+ol.comment-list li.comment div.comment-metadata a {}
+
+ol.comment-list li.comment p {
+	line-height: 1.4;
+}
+
+ol.comment-list li.comment ul {
+	margin-top: 1em;
+}
+
+ol.comment-list li.comment div.reply {
+	margin-top: 1em;
+}
+
+ol.comment-list li.comment div.reply a {}
+
+.comment-reply-link {}
+
+.comment-reply-link:before {
+	display: inline-block;
+	margin-right: 0.5em;
+	font-family: 'FontAwesome';
+	content: '\f112';
+	text-decoration: none;
+}
+
+ol.comment-list li.comment ul.children {
+	list-style: none;
+	margin-left: 1em;
+}
+
+ol.comment-list li.comment ul.children li article.comment-body {
+	margin-top: 0;
+}
+
+ol.comment-list li.comment ul.children li.alt {}
+
+ol.comment-list li.comment ul.children li.bypostauthor {}
+
+ol.comment-list li.comment ul.children li.byuser {}
+
+ol.comment-list li.comment ul.children li.comment {}
+
+ol.comment-list li.comment ul.children li.comment-author-admin {}
+
+ol.comment-list li.comment ul.children li.depth-2 {}
+
+ol.comment-list li.comment ul.children li.depth-3 {}
+
+ol.comment-list li.comment ul.children li.depth-4 {}
+
+ol.comment-list li.comment ul.children li.depth-5 {}
+
+ol.comment-list li.comment ul.children li.odd {}
+
+ol.comment-list li.even {}
+
+ol.comment-list li.odd {}
+
+ol.comment-list li.parent {}
+
+ol.comment-list li.thread-alt {}
+
+ol.comment-list li.thread-even {}
+
+ol.comment-list li.thread-odd {}
+
+/*--------------------------------------------------------------
+# MISCELLANEOUS
+--------------------------------------------------------------*/
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.chromeframe {
+	position: absolute;
+	top: 0;
+}

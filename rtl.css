@@ -1,0 +1,6 @@
+.entry-content ul,
+.sidebar-widgets ul,
+.entry-content ol,
+.sidebar-widgets ol {
+	margin-right: 1em;
+}
