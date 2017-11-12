@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -15,10 +15,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
 <?php do_action( 'cct_before_html' ); ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js">
-<?php $cct_head = new Controlled_Chaos_Head;
-
-get_template_part( 'includes/template-tags/class-body-element' );
+<?php
+$cct_head = new Controlled_Chaos_Head;
 $cct_body = new Controlled_Chaos_Body_Element;
 
+/**
+ * Use GeneratePress action to add header
+ * for removal by theme builders.
+ * 
+ * @since Controlled_Chaos 1.0.2
+ */
 get_template_part( 'template-parts/header/header' );
-$cct_header = new Controlled_Chaos_Header;
+do_action( 'generate_header' );

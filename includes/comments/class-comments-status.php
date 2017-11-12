@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -33,7 +33,7 @@ class Controlled_Chaos_Comments_Status {
     /**
      * No comments.
      * 
-     * @since Controlled_Chaos 1.0.1
+     * @since Controlled_Chaos 1.0.0
      */
     public static function none() {
 
@@ -46,7 +46,7 @@ class Controlled_Chaos_Comments_Status {
     /**
      * Comments closed.
      * 
-     * @since Controlled_Chaos 1.0.1
+     * @since Controlled_Chaos 1.0.0
      */
     public static function closed() {
 

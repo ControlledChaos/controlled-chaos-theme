@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 // No direct access, please
@@ -27,7 +27,7 @@ class Controlled_Chaos_Sidebar {
     /**
 	 * Sidebar partials.
      * 
-     * @since Controlled_Chaos 1.0.1
+     * @since Controlled_Chaos 1.0.0
 	 */
     public function partials() {
 

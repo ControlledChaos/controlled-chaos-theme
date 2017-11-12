@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -102,7 +102,7 @@ class Controlled_Chaos_Head {
 		echo '<meta name="twitter:url" content="' . get_the_permalink() . '" />' . "\r";
 		echo '<meta name="twitter:image:src" content="' . $src . '" />' . "\r";
 
-		echo '</head>';
+		echo '</head>', "\r";
 
 	}
     

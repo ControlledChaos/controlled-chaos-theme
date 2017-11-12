@@ -54,7 +54,7 @@ class Controlled_Chaos_Body_Element {
 
 		$body_tag = apply_filters( 'cct_body_tag', $body );
 
-		echo $body_tag;
+		echo $body_tag, "\r";
 
 	}
 

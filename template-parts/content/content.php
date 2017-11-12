@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -29,7 +29,7 @@ class Controlled_Chaos_Content {
     /**
 	 * Content partials.
      * 
-     * @since Controlled_Chaos 1.0.1
+     * @since Controlled_Chaos 1.0.0
 	 */
     public static function partials() {
 

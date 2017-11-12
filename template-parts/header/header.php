@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -22,14 +22,14 @@ class Controlled_Chaos_Header {
 	 */
 	public function __construct() {
 
-        $this->partials();
+        add_action( 'cct_header', [ $this, 'partials' ] );
 
     }
 
     /**
 	 * Header partials.
      * 
-     * @since Controlled_Chaos 1.0.1
+     * @since Controlled_Chaos 1.0.0
 	 */
     public function partials() {
 
@@ -45,3 +45,5 @@ class Controlled_Chaos_Header {
     }
 
 }
+
+$cct_header = new Controlled_Chaos_Header;

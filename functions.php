@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Controlled Chaos functions class.
  *
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 class Controlled_Chaos_Functions {
 
@@ -33,7 +33,7 @@ class Controlled_Chaos_Functions {
 		/**
 		 * Theme scripts.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 
 		// Frontend scripts.
@@ -77,21 +77,21 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Theme setup.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function setup() {
 
 		/**
 		 * Load domain for translation.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 		load_theme_textdomain( 'controlled-chaos' );
 
 		/**
 		 * Add theme support.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 
 		// Browser title tag support.
@@ -173,7 +173,7 @@ class Controlled_Chaos_Functions {
 		 /**
 		 * Set content width.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 		
 		if ( ! isset( $content_width ) ) {
@@ -192,14 +192,14 @@ class Controlled_Chaos_Functions {
 		/**
 		 * Add stylesheet for the content editor.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 		add_editor_style( '/assets/css/editor-style.css', [ 'cct-admin' ], '', 'screen' );
 
 		/**
 		 * Disable Jetpack open graph. We have the open graph tags in the theme.
 		 *
-		 * @since Controlled_Chaos 1.0.1
+		 * @since Controlled_Chaos 1.0.0
 		 */
 		if ( class_exists( 'Jetpack' ) ) {
 			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
@@ -210,7 +210,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Clean up meta tags from the <head>.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function head_cleanup() {
 
@@ -223,7 +223,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Frontend scripts.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function frontend_scripts() {
 
@@ -246,7 +246,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Admin scripts.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function admin_scripts() {
 
@@ -257,7 +257,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Disable emojis.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 *
 	 * Emojis will still work in modern browsers.
 	 */
@@ -276,7 +276,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Frontend styles.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function frontend_styles() {
 
@@ -312,7 +312,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Admin styles.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function admin_styles() {
 
@@ -323,7 +323,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Login styles.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function login_styles() {
 
@@ -334,7 +334,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Remove versions from stylesheets and scripts.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function remove_wp_ver_css_js( $src ) {
 
@@ -348,12 +348,15 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Theme dependencies.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	private function dependencies() {
 
 		// Set up the <head> element.
 		require_once get_parent_theme_file_path( '/includes/head.php' );
+
+		// Set up the <body> element.
+		require_once get_parent_theme_file_path( '/includes/template-tags/class-body-element.php' );
 
 		// Content template parts.
 		require_once get_theme_file_path( '/template-parts/content/content.php' );
@@ -363,7 +366,7 @@ class Controlled_Chaos_Functions {
 	/**
 	 * Register widget areas.
 	 *
-	 * @since Controlled_Chaos 1.0.1
+	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function widgets() {
 
