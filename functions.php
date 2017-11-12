@@ -7,7 +7,7 @@
  * @since Controlled Chaos 1.0.1
  */
 
-namespace ControlledChaos;
+namespace Controlled_Chaos;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
