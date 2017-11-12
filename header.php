@@ -22,4 +22,3 @@ $cct_body = new Controlled_Chaos_Body_Element;
 
 get_template_part( 'template-parts/header/header' );
 $cct_header = new Controlled_Chaos_Header;
-?>
