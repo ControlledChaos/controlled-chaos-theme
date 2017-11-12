@@ -356,7 +356,7 @@ class Controlled_Chaos_Functions {
 		require_once get_parent_theme_file_path( '/includes/head.php' );
 
 		// Content template parts.
-		require_once get_parent_theme_file_path( '/template-parts/content/content.php' );
+		require_once get_theme_file_path( '/template-parts/content/content.php' );
 
 	}
 
