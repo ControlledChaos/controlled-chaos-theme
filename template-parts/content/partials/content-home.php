@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
 <article class="hentry" id="post-<?php the_ID(); ?>" role="article">
     <header class="entry-header">
-        <?php echo apply_filters( 'cct_front_page_title', the_title( '<h2 class="entry-title">', '</h2>' ) ); ?>
+        <?php echo apply_filters( 'cct_front_page_title', the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ) ); ?>
     </header>
     <div class="entry-content" itemprop="articleBody">
     <?php
