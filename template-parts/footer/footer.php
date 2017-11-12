@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since Controlled_Chaos 1.0.1
  */
 
 namespace Controlled_Chaos;
@@ -31,7 +31,7 @@ class Controlled_Chaos_Footer {
     /**
 	 * Footer partials.
      * 
-     * @since Controlled_Chaos 1.0.0
+     * @since Controlled_Chaos 1.0.1
 	 */
     public function partials() {
 

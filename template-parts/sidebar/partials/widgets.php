@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since Controlled_Chaos 1.0.1
  */
 
 // No direct access, please

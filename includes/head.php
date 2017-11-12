@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since Controlled_Chaos 1.0.1
  */
 
 namespace Controlled_Chaos;
@@ -36,7 +36,7 @@ class Controlled_Chaos_Head {
     /**
 	 * Tags before the wp_head() function.
 	 * 
-	 * @since IntegratePress 1.0.0
+	 * @since IntegratePress 1.0.1
 	 */
 	public function before_wp_head() {
 
@@ -57,7 +57,7 @@ class Controlled_Chaos_Head {
     /**
 	 * Tags after the wp_head() function.
 	 * 
-	 * @since IntegratePress 1.0.0
+	 * @since IntegratePress 1.0.1
 	 */
 	public function after_wp_head() {
 
