@@ -355,6 +355,9 @@ class Controlled_Chaos_Functions {
 		// Set up the <head> element.
 		require_once get_parent_theme_file_path( '/includes/head.php' );
 
+		// Content template parts.
+		require_once get_parent_theme_file_path( '/template-parts/content/content.php' );
+
 	}
 
 	/**

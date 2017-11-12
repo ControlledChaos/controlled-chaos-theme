@@ -31,7 +31,7 @@ class Controlled_Chaos_Content {
      * 
      * @since Controlled_Chaos 1.0.1
 	 */
-    public function partials() {
+    public static function partials() {
 
         if ( is_front_page() ) {
             get_template_part( 'template-parts/content/partials/content', 'front-page' );
