@@ -14,9 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 $cct_head = new Controlled_Chaos_Head;
 
-do_action( 'controlled_chaos_body' );
-do_action( 'controlled_chaos_loader' );
-do_action( 'controlled_chaos_topbar' );
+do_action( 'cct_body' );
+do_action( 'cct_loader' );
+do_action( 'cct_topbar' );
 
 /**
  * Use GeneratePress action to add header

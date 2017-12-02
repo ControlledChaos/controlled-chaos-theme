@@ -22,7 +22,7 @@ class Controlled_Chaos_Body_Element {
 	 */
 	public function __construct() {
 
-		add_action( 'controlled_chaos_body', [ $this, 'body' ] );
+		add_action( 'cct_body', [ $this, 'body' ] );
 
 	}
 
