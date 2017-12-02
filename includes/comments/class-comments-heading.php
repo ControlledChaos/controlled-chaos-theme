@@ -35,6 +35,7 @@ class Controlled_Chaos_Comments_Heading {
     public static function heading() {
 
         $comments_number = get_comments_number();
+        
         if ( 1 === $comments_number ) {
             $comments_heading = sprintf( _x( 'One comment on %1s', 'comments title', 'controlled-chaos' ), get_the_title() );
         } else {

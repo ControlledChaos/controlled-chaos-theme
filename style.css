@@ -81,7 +81,12 @@ body {
 	padding: 0 2rem;
 }
 
+main article {
+	clear: both;
+}
+
 .entry-content,
+.sidebar,
 h1,
 h2,
 h3,
@@ -106,7 +111,6 @@ ol {
 # HEADER
 --------------------------------------------------------------*/
 .site-title {
-	margin: 0;
 	/* Match <p> tag to <h1> tag on front page */
 	font-size: 3.2rem;
 	font-weight: bold;
@@ -153,7 +157,7 @@ figure.aligncenter {
 
 img.alignnone,
 figure.alignnone {
-	margin: 1em;
+	margin: 0 1em 1em 0;
 }
 
 .blog .post-thumbnail,
@@ -161,8 +165,12 @@ figure.alignnone {
 	margin-top: 1em;
 }
 
-.entry-content p img {
-	margin-bottom: 1em;
+.entry-content p img.alignleft {
+	margin: 0 1em 1em 0;
+}
+
+.entry-content p img.alignright {
+	margin: 0 0 1em 1em;
 }
 
 .entry-content p img.aligncenter {

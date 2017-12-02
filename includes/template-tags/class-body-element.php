@@ -22,11 +22,11 @@ class Controlled_Chaos_Body_Element {
 	 */
 	public function __construct() {
 
-		$this->body();
+		add_action( 'controlled_chaos_body', [ $this, 'body' ] );
 
 	}
 
-	public static function body() {
+	public function body() {
 
 		// Get plugin path to check for bbPress & BuddyPress
 		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -59,3 +59,5 @@ class Controlled_Chaos_Body_Element {
 	}
 
 }
+
+$cct_body = new Controlled_Chaos_Body_Element;

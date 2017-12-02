@@ -42,15 +42,6 @@ class Controlled_Chaos_Functions {
 		// Admin scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
 
-		// Remove emoji script.
-		add_action( 'init', [ $this, 'disable_emojis' ] );
-
-		// Remove versions from stylesheets and scripts if option set in customizer.
-		if ( get_theme_mod( 'integrate_remove_script_versions' ) ) {
-			add_filter( 'style_loader_src', [ $this, 'remove_wp_ver_css_js' ], 999 );
-			add_filter( 'script_loader_src', [ $this, 'remove_wp_ver_css_js' ], 999 );
-		}
-
 		// jQuery UI fallback for HTML5 Contact Form 7 form fields.
 		add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
 
@@ -255,25 +246,6 @@ class Controlled_Chaos_Functions {
 	}
 
 	/**
-	 * Disable emojis.
-	 *
-	 * @since Controlled_Chaos 1.0.0
-	 *
-	 * Emojis will still work in modern browsers.
-	 */
-	public function disable_emojis() {
-
-		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-		remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-		remove_action( 'wp_print_styles', 'print_emoji_styles' );
-		remove_action( 'admin_print_styles', 'print_emoji_styles' );
-		remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-		remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-		remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-
-	}
-
-	/**
 	 * Frontend styles.
 	 *
 	 * @since Controlled_Chaos 1.0.0
@@ -332,20 +304,6 @@ class Controlled_Chaos_Functions {
 	}
 
 	/**
-	 * Remove versions from stylesheets and scripts.
-	 *
-	 * @since Controlled_Chaos 1.0.0
-	 */
-	public function remove_wp_ver_css_js( $src ) {
-
-		if ( strpos( $src, 'ver=' ) ) {
-			$src = remove_query_arg( 'ver', $src );
-		}
-
-		return $src;
-	}
-
-	/**
 	 * Theme dependencies.
 	 *
 	 * @since Controlled_Chaos 1.0.0
@@ -353,7 +311,7 @@ class Controlled_Chaos_Functions {
 	private function dependencies() {
 
 		// Set up the <head> element.
-		require_once get_parent_theme_file_path( '/includes/head.php' );
+		require_once get_parent_theme_file_path( '/includes/head/class-head.php' );
 
 		// Set up the <body> element.
 		require_once get_parent_theme_file_path( '/includes/template-tags/class-body-element.php' );

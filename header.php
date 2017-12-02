@@ -10,18 +10,17 @@
 namespace Controlled_Chaos;
 
 // Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) exit; ?>
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-<?php do_action( 'cct_before_html' ); ?>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?> class="no-js">
-<?php
 $cct_head = new Controlled_Chaos_Head;
-$cct_body = new Controlled_Chaos_Body_Element;
+
+do_action( 'controlled_chaos_body' );
+do_action( 'controlled_chaos_loader' );
+do_action( 'controlled_chaos_topbar' );
 
 /**
  * Use GeneratePress action to add header
- * for removal by theme builders.
+ * for removal by certain theme builders.
  * 
  * @since Controlled_Chaos 1.0.2
  */
