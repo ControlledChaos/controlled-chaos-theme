@@ -33,17 +33,21 @@ class Controlled_Chaos_Content {
 	 */
     public static function partials() {
 
-        if ( is_front_page() ) {
-            get_template_part( 'template-parts/content/partials/content', 'front-page' );
+        if ( is_front_page() && is_home() ) {
+            $content = get_template_part( 'template-parts/content/partials/content', 'home' );
+        } elseif ( is_front_page() ) {
+            $content = get_template_part( 'template-parts/content/partials/content', 'front-page' );
         } elseif ( is_home() ) {
-            get_template_part( 'template-parts/content/partials/content', 'home' );
+            $content = get_template_part( 'template-parts/content/partials/content', 'home' );
         } elseif ( is_archive() ) {
-            get_template_part( 'template-parts/content/partials/content', 'archive' );
+            $content = get_template_part( 'template-parts/content/partials/content', 'archive' );
         } elseif ( is_search() ) {
-            get_template_part( 'template-parts/content/partials/content', 'search' );
+            $content = get_template_part( 'template-parts/content/partials/content', 'search' );
         } else {
-            get_template_part( 'template-parts/content/partials/content', 'singular' );
+            $content = get_template_part( 'template-parts/content/partials/content', 'singular' );
         }
+
+        return apply_filters( 'cct_content', $content );
 
     }
 
