@@ -118,6 +118,8 @@ class Controlled_Chaos_Functions {
 
 		/**
 		 * Add Gutenberg support.
+		 * 
+		 * @since Controlled_Chaos 1.0.0
 		 */
 
 		// Default color choices.
@@ -128,12 +130,18 @@ class Controlled_Chaos_Functions {
 			'#32373c',
 			'#0073aa',
 			'#00a0d2'
-		 ] );
+		] );
 
 		add_theme_support( 'gutenberg', [
 			'wide-images' => true,
 			'colors'      => $gutenberg_colors,
-		 ] );
+		] );
+		
+		/**
+		 * Add theme support.
+		 * 
+		 * @since Controlled_Chaos 1.0.0
+		 */
 
 		// Customizer widget refresh support.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -158,6 +166,8 @@ class Controlled_Chaos_Functions {
 		 * 
 		 * Three sizes per aspect ratio so that WordPress
 		 * will use srcset for responsive images.
+		 * 
+		 * @since Controlled_Chaos 1.0.2
 		 */
 
 		// 16:9 HD Video.

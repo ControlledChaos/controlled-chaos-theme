@@ -152,6 +152,7 @@ figure.alignright {
 
 .aligncenter,
 figure.aligncenter {
+	display: block;
 	margin: 1em auto;
 }
 

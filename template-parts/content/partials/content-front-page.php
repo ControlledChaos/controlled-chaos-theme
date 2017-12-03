@@ -21,8 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
     if ( '' !== get_the_post_thumbnail() ) : ?>
         <div class="post-thumbnail">
             <?php
-            $size = apply_filters( 'cct_front_page_thumbnail_size', 'large' );
-            echo get_the_post_thumbnail( $post->ID, $size ); ?>
+            $size  = apply_filters( 'cct_front_page_thumbnail_size', 'large' );
+            $class = apply_filters( 'cct_front_page_thumbnail_class', 'alignnone' );
+            echo get_the_post_thumbnail( $post->ID, $size, [ 'class' => $class ] ); ?>
         </div><!-- post-thumbnail -->
     <?php endif;
         echo apply_filters( 'cct_front_page_content', the_content() ); ?>
