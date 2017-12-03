@@ -7,4 +7,4 @@ Short array syntax requires PHP 5.4+
 Try using with the Controlled Chaos Plugin
 [https://github.com/ControlledChaos/controlled-chaos-plugin](https://github.com/ControlledChaos/controlled-chaos-plugin)
 
-<img src="controlled-chaos-theme/screenshot.jpg" />
+<img src="https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-theme/master/screenshot.jpg" />
