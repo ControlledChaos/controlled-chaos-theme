@@ -68,7 +68,7 @@ if ( ! in_array( 1, $links ) ) {
 
     $first = $first_link . $first_more;
 } else {
-    $first = '';
+    $first = null;
 }
 
 //	Link to last page, plus ellipses if necessary.
@@ -79,7 +79,7 @@ if ( ! in_array( $max, $links ) ) {
     if ( ! in_array( $max - 1, $links ) ) {
         $max_more = '<li>&hellip;</li>';
     } else {
-        $max_more = '';
+        $max_more = null;
     }
 
     $last = $max_more . $last_link;
@@ -89,15 +89,10 @@ if ( ! in_array( $max, $links ) ) {
 <nav class="numeric-pagination">
     <label class="numeric-pagination-label" for="numeric-pagination-list"><?php esc_html_e( 'Page: ', 'controlled-chaos' ); ?></label>
     <ul id="numeric-pagination-list">
-        <?php echo $prev_link; ?>
-        <?php echo $first; ?>
-        <?php // Link to current page, plus 2 pages in either direction if necessary.
-        sort( $links );
+        <?php echo $prev_link . $first; sort( $links );
         foreach ( (array) $links as $link ) {
             $class = $paged == $link ? ' class="active"' : '';
-            echo sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), '&nbsp;' . $link . '&nbsp;' );
-        } ?>
-        <?php echo $last; ?>
-        <?php echo $next_link; ?>
+            echo sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), $link );
+        } echo $last . $next_link; ?>
     </ul>
 </nav>
