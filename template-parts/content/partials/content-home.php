@@ -20,12 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
     <?php
     if ( '' !== get_the_post_thumbnail() ) : ?>
         <div class="post-thumbnail">
-            <?php
+            <a href="<?php the_permalink(); ?>"><?php
             $size = apply_filters( 'cct_blog_thumbnail_size', 'medium' );
             $args = apply_filters( 'cct_blog_thumbnail_args', [
                 'class' => 'alignnone'
             ] );
-            echo get_the_post_thumbnail( $post->ID, $size, $args ); ?>
+            echo get_the_post_thumbnail( $post->ID, $size, $args ); ?></a>
         </div><!-- post-thumbnail -->
     <?php endif;
         echo apply_filters( 'cct_blog_content', the_content() ); ?>
