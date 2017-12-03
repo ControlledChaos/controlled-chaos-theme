@@ -12,6 +12,9 @@ namespace Controlled_Chaos;
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+// Get plugins path to check for active plugins.
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
 /**
  * Controlled Chaos functions class.
  *
