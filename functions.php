@@ -152,9 +152,23 @@ class Controlled_Chaos_Functions {
 
 		// Featured image support.
 		add_theme_support( 'post-thumbnails' );
+		
+		/**
+		 * Add image sizes.
+		 * 
+		 * Three sizes per aspect ratio so that WordPress
+		 * will use srcset for responsive images.
+		 */
 
+		// 16:9 HD Video.
 		add_image_size( __( 'video', 'controlled-chaos' ), 1280, 720, true );
+		add_image_size( __( 'video-md', 'controlled-chaos' ), 960, 540, true );
+		add_image_size( __( 'video-sm', 'controlled-chaos' ), 640, 360, true );
+
+		// 21:9 Cinemascope.
 		add_image_size( __( 'banner', 'controlled-chaos' ), 1280, 549, true );
+		add_image_size( __( 'banner-md', 'controlled-chaos' ), 960, 411, true );
+		add_image_size( __( 'banner-sm', 'controlled-chaos' ), 640, 274, true );
 		
 		// Add image size for meta tags if companion plugin is not activated.
 		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
@@ -323,6 +337,9 @@ class Controlled_Chaos_Functions {
 
 		// Set up the <body> element.
 		require_once get_parent_theme_file_path( '/includes/template-tags/class-body-element.php' );
+
+		// Set up the <body> element.
+		require_once get_parent_theme_file_path( '/includes/filters/class-template-filters.php' );
 
 		// Content template parts.
 		require_once get_theme_file_path( '/template-parts/content/content.php' );
