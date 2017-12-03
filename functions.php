@@ -153,6 +153,14 @@ class Controlled_Chaos_Functions {
 		// Featured image support.
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size( __( 'video', 'controlled-chaos' ), 1280, 720, true );
+		add_image_size( __( 'banner', 'controlled-chaos' ), 1280, 549, true );
+		
+		// Add image size for meta tags if companion plugin is not activated.
+		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
+			add_image_size( __( 'Meta Image', 'controlled-chaos' ), 1200, 630, true );
+		}
+
 		// Customizer logo upload support.
 		add_theme_support( 'custom-logo', [
 			'width'       => apply_filters( 'cct_logo_width', 180 ),
