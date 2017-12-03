@@ -31,9 +31,7 @@ class Controlled_Chaos_Blog_Nav {
 	 */
 	public function nav() {
 
-		if ( ! is_singular() ) {
-			get_template_part( 'template-parts/navigation/partials/posts-nav' );
-		}
+		get_template_part( 'template-parts/navigation/partials/numeric-nav' );
 
 	}
 

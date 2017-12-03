@@ -188,6 +188,23 @@ class Controlled_Chaos_Functions {
 			add_image_size( __( 'Meta Image', 'controlled-chaos' ), 1200, 630, true );
 		}
 
+		// Header support.
+		$header = [
+			'default-image'          => '',
+			'width'                  => 0,
+			'height'                 => 0,
+			'flex-height'            => true,
+			'flex-width'             => true,
+			'uploads'                => true,
+			'random-default'         => false,
+			'header-text'            => true,
+			'default-text-color'     => '',
+			'wp-head-callback'       => '',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		];
+		add_theme_support( 'custom-header', $header );
+
 		// Customizer logo upload support.
 		add_theme_support( 'custom-logo', [
 			'width'       => apply_filters( 'cct_logo_width', 180 ),
@@ -358,7 +375,9 @@ class Controlled_Chaos_Functions {
 		require_once get_theme_file_path( '/template-parts/content/content.php' );
 
 		// Blog navigation.
-		require_once get_theme_file_path( '/template-parts/navigation/class-controlled-chaos-blog-nav.php' );
+		if ( ! is_singular() ) {
+			require_once get_theme_file_path( '/template-parts/navigation/class-controlled-chaos-blog-nav.php' );
+		}
 
 	}
 

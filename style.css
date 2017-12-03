@@ -125,6 +125,15 @@ ol {
 	margin-top: 1em;
 }
 
+.numeric-pagination ul {
+	display: inline-block;
+	list-style: none;
+}
+
+.numeric-pagination li {
+	display: inline-block;
+}
+
 /*--------------------------------------------------------------
 # IMAGES
 --------------------------------------------------------------*/

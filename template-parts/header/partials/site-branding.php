@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Conditional title tag.
  */
-if ( is_front_page() ) {
+if ( is_front_page() && ! is_paged() ) {
     $title = sprintf( '<h1 class="site-title" itemprop="name">%1$s</h1>', get_bloginfo( 'name' ) );
 } else {
     $title = sprintf( '<p class="site-title" itemprop="name"><a href="%1$s" rel="home">%2$s</a></p>', esc_url( home_url( '/' ) ), get_bloginfo( 'name' ) );

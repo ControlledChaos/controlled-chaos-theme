@@ -11,3 +11,93 @@ namespace Controlled_Chaos;
 
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+if ( is_singular() ) {
+    return;
+}
+
+global $wp_query;
+
+// Stop execution if there's only 1 page.
+if ( $wp_query->max_num_pages <= 1 ) {
+    return;
+}
+
+$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+$max   = intval( $wp_query->max_num_pages );
+
+//	Add current page to the array.
+if ( $paged >= 1 )
+    $links[] = $paged;
+
+//	Add the pages around the current page to the array.
+if ( $paged >= 3 ) {
+    $links[] = $paged - 1;
+    $links[] = $paged - 2;
+}
+
+if ( ( $paged + 2 ) <= $max ) {
+    $links[] = $paged + 2;
+    $links[] = $paged + 1;
+}
+
+// Previous posts page link.
+if ( get_previous_posts_link() ) {
+    $prev_link = sprintf( '<li><span class="prev-page" rel="prev">%s</span></li>', get_previous_posts_link( '<span>Previous Page</span>' ) );
+} else {
+    $prev_link = '';
+}
+
+//	Next posts page link.
+if ( get_next_posts_link() ) {
+    $next_link = sprintf( '<li><span class="next-page" rel="next">%s</span></li>', get_next_posts_link( '<span>Next Page</span>' ) );
+} else {
+    $next_link = '';
+}
+
+//	Link to first page, plus ellipses if necessary.
+if ( ! in_array( 1, $links ) ) {
+    $class       = 1 == $paged ? ' class="active"' : '';
+    $first_link  = sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( 1 ) ), esc_html( '1', 'controlled-chaos' ) );
+
+    if ( ! in_array( 2, $links ) ) {
+        $first_more = '<li>&hellip;</li>';
+    } else {
+        $first_more = '';
+    }
+
+    $first = $first_link . $first_more;
+} else {
+    $first = '';
+}
+
+//	Link to last page, plus ellipses if necessary.
+if ( ! in_array( $max, $links ) ) {
+    $class     = $paged == $max ? ' class="active"' : '';
+    $last_link = sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $max ) ), $max );
+
+    if ( ! in_array( $max - 1, $links ) ) {
+        $max_more = '<li>&hellip;</li>';
+    } else {
+        $max_more = '';
+    }
+
+    $last = $max_more . $last_link;
+} else {
+    $last = '';
+} ?>
+<nav class="numeric-pagination">
+    <label class="numeric-pagination-label" for="numeric-pagination-list"><?php esc_html_e( 'Page: ', 'controlled-chaos' ); ?></label>
+    <ul id="numeric-pagination-list">
+        <?php echo $prev_link; ?>
+        <?php echo $first; ?>
+        <?php // Link to current page, plus 2 pages in either direction if necessary.
+        sort( $links );
+        foreach ( (array) $links as $link ) {
+            $class = $paged == $link ? ' class="active"' : '';
+            echo sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), '&nbsp;' . $link . '&nbsp;' );
+        } ?>
+        <?php echo $last; ?>
+        <?php echo $next_link; ?>
+    </ul>
+</nav>
