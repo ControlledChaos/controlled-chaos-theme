@@ -6,3 +6,5 @@ Short array syntax requires PHP 5.4+
 
 Try using with the Controlled Chaos Plugin
 [https://github.com/ControlledChaos/controlled-chaos-plugin](https://github.com/ControlledChaos/controlled-chaos-plugin)
+
+<img src="controlled-chaos-theme/screenshot.jpg" />
