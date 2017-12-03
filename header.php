@@ -17,12 +17,5 @@ $cct_head = new Controlled_Chaos_Head;
 do_action( 'cct_body' );
 do_action( 'cct_loader' );
 do_action( 'cct_topbar' );
-
-/**
- * Use GeneratePress action to add header
- * for removal by certain theme builders.
- * 
- * @since Controlled_Chaos 1.0.2
- */
-get_template_part( 'template-parts/header/header' );
-do_action( 'generate_header' );
+get_template_part( 'template-parts/header/class', 'controlled-chaos-header' );
+do_action( 'cct_header' );

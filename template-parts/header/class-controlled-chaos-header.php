@@ -22,7 +22,7 @@ class Controlled_Chaos_Header {
 	 */
 	public function __construct() {
 
-        add_action( 'generate_header', [ $this, 'partials' ] );
+        add_action( 'cct_header', [ $this, 'partials' ] );
 
     }
 

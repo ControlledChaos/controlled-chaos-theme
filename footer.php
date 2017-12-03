@@ -13,8 +13,7 @@ namespace Controlled_Chaos;
 // No direct access, please
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-get_template_part( 'template-parts/footer/footer' );
-$cct_footer = new Controlled_Chaos_Footer; ?>
+get_template_part( 'template-parts/footer/class', 'controlled-chaos-footer' ); ?>
 
 </body>
 </html>

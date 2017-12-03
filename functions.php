@@ -357,6 +357,9 @@ class Controlled_Chaos_Functions {
 		// Content template parts.
 		require_once get_theme_file_path( '/template-parts/content/content.php' );
 
+		// Blog navigation.
+		require_once get_theme_file_path( '/template-parts/navigation/class-controlled-chaos-blog-nav.php' );
+
 	}
 
 	/**

@@ -47,3 +47,5 @@ class Controlled_Chaos_Footer {
     }
 
 }
+
+$cct_footer = new Controlled_Chaos_Footer;
