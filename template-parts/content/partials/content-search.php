@@ -28,6 +28,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
             echo get_the_post_thumbnail( $post->ID, $size, $args ); ?></a>
         </div><!-- post-thumbnail -->
     <?php endif;
-        echo apply_filters( 'cct_search_content', the_content() ); ?>
+        echo apply_filters( 'cct_search_content', the_excerpt() ); ?>
     </div><!-- entry-content -->
 </article>
