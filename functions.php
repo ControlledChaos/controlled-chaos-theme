@@ -362,6 +362,9 @@ class Controlled_Chaos_Functions {
 	 */
 	private function dependencies() {
 
+		// Theme customizer.
+		require_once get_parent_theme_file_path( '/includes/customizer/class-customizer.php' );
+
 		// Set up the <head> element.
 		require_once get_parent_theme_file_path( '/includes/head/class-head.php' );
 
@@ -376,7 +379,7 @@ class Controlled_Chaos_Functions {
 
 		// Blog navigation.
 		if ( ! is_singular() ) {
-			require_once get_theme_file_path( '/template-parts/navigation/class-controlled-chaos-blog-nav.php' );
+			require_once get_theme_file_path( '/template-parts/navigation/class-blog-nav.php' );
 		}
 
 	}

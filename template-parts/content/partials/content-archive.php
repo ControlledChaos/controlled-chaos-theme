@@ -28,6 +28,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; ?>
             echo get_the_post_thumbnail( $post->ID, $size, $args ); ?></a>
         </div><!-- post-thumbnail -->
     <?php endif;
-        echo apply_filters( 'cct_archive_content', the_content() ); ?>
+        if ( 'excerpt' == cct_sanitize_archive_content_format( get_theme_mod( 'cct_archive_content_format' ) ) ) {
+            echo apply_filters( 'cct_archive_content', the_excerpt() );
+        } else {
+            echo apply_filters( 'cct_archive_content', the_content() );
+        } ?>
     </div><!-- entry-content -->
 </article>

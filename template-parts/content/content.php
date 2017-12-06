@@ -18,15 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Content {
 
     /**
-	 * Constructor magic method.
-	 */
-	public function __construct() {
-
-        $this->partials();
-
-    }
-
-    /**
 	 * Content partials.
      * 
      * @since Controlled_Chaos 1.0.0

@@ -63,7 +63,7 @@ if ( ! in_array( 1, $links ) ) {
     if ( ! in_array( 2, $links ) ) {
         $first_more = '<li>&hellip;</li>';
     } else {
-        $first_more = '';
+        $first_more = null;
     }
 
     $first = $first_link . $first_more;
@@ -84,12 +84,14 @@ if ( ! in_array( $max, $links ) ) {
 
     $last = $max_more . $last_link;
 } else {
-    $last = '';
-} ?>
+    $last = null;
+}
+$label = apply_filters( 'cct_numeric_pagination_label', __( 'Page: ', 'controlled-chaos' ) ); ?>
 <nav class="numeric-pagination">
-    <label class="numeric-pagination-label" for="numeric-pagination-list"><?php esc_html_e( 'Page: ', 'controlled-chaos' ); ?></label>
+    <label class="numeric-pagination-label" for="numeric-pagination-list"><?php echo $label; ?></label>
     <ul id="numeric-pagination-list">
-        <?php echo $prev_link . $first; sort( $links );
+        <?php echo $prev_link . $first;
+        sort( $links );
         foreach ( (array) $links as $link ) {
             $class = $paged == $link ? ' class="active"' : '';
             echo sprintf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), $link );

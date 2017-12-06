@@ -116,6 +116,10 @@ ol {
 	font-weight: bold;
 }
 
+.site-title a {
+	text-decoration: none;
+}
+
 /*--------------------------------------------------------------
 # NAVIGATION
 --------------------------------------------------------------*/
@@ -137,6 +141,10 @@ ol {
 .numeric-pagination li a {
 	display: inline-block;
 	margin: 0 0.15em;
+}
+
+.numeric-pagination li.active a {
+	font-weight: bold;
 }
 
 /*--------------------------------------------------------------

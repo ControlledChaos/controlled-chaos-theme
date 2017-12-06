@@ -31,7 +31,11 @@ class Controlled_Chaos_Blog_Nav {
 	 */
 	public function nav() {
 
-		get_template_part( 'template-parts/navigation/partials/numeric-nav' );
+		if ( 'numeric' == cct_sanitize_blog_navigation_format( get_theme_mod( 'cct_blog_navigation_format' ) ) ) {
+			get_template_part( 'template-parts/navigation/partials/numeric-nav' );
+		} else {
+			get_template_part( 'template-parts/navigation/partials/posts-nav' );
+		}
 
 	}
 

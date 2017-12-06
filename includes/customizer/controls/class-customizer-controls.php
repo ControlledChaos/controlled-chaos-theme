@@ -1,0 +1,41 @@
+<?php
+/**
+ * Customizer controls.
+ *
+ * @package WordPress
+ * @subpackage Controlled_Chaos
+ * @since Controlled_Chaos 1.0.0
+ */
+
+namespace Controlled_Chaos;
+
+// Restrict direct access
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+/**
+ * Customizer base class.
+ */
+class Controlled_Chaos_Customizer_Controls {
+
+    /**
+	 * Constructor magic method.
+	 */
+	public function __construct() {
+
+        // Include Customizer dependencies.
+		$this->dependencies();
+
+    }
+
+    /**
+     * Include Customizer dependencies.
+     */
+    public function dependencies() {
+
+        require_once get_parent_theme_file_path( '/includes/customizer/controls/class-customizer-blog.php' );
+
+    }
+
+}
+
+$cct_customizer_controls = new Controlled_Chaos_Customizer_Controls;
