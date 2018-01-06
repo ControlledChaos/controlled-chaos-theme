@@ -12,6 +12,5 @@ namespace Controlled_Chaos;
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-do_action( 'cct_before_header' );
-
-echo '<header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">', "\r";
+do_action( 'cct_before_header' ); ?>
+<header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">

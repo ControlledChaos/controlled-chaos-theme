@@ -10,8 +10,6 @@
 namespace Controlled_Chaos;
 
 // Restrict direct access
-if ( ! defined( 'ABSPATH' ) ) exit;
-
-echo '</header>', "\r";
-
-do_action( 'cct_after_header' );
+if ( ! defined( 'ABSPATH' ) ) exit; ?>
+</header>
+<?php do_action( 'cct_after_header' ); ?>
