@@ -4,10 +4,10 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since  1.0.0
  */
 
-namespace Controlled_Chaos;
+namespace CCTheme;
 
 // No direct access, please
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -30,7 +30,7 @@ class Register_Sidebars {
     /**
 	 * Register primary sidebar.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function primary() {
 
@@ -41,7 +41,7 @@ class Register_Sidebars {
     /**
 	 * Register widget areas.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function secondary() {
 

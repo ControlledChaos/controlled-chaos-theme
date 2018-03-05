@@ -4,10 +4,10 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since  1.0.0
  */
 
-namespace Controlled_Chaos;
+namespace CCTheme;
 
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -29,7 +29,7 @@ class Content {
     /**
 	 * Content partials.
      * 
-     * @since Controlled_Chaos 1.0.0
+     * @since  1.0.0
 	 */
     public function partials() {
 

@@ -4,10 +4,10 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.0
+ * @since  1.0.0
  */
 
-namespace Controlled_Chaos;
+namespace CCTheme;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -45,7 +45,7 @@ class Head {
 	/**
 	 * Opening tags.
 	 * 
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function head_begin() {
 
@@ -56,7 +56,7 @@ class Head {
 	/**
 	 * Dependencies use get_template_part for child themeing.
 	 * 
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function dependencies() {
 
@@ -84,7 +84,7 @@ class Head {
 	/**
 	 * Conditionally get bookmarks.
 	 * 
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function bookmarks() {
 
@@ -99,7 +99,7 @@ class Head {
 	/**
 	 * Close the head section.
 	 * 
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
 	 */
 	public function head_end() {
 

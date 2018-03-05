@@ -6,7 +6,7 @@
  * @subpackage Controlled_Chaos
  * @since Controlled Chaos 1.0.0
  */
-namespace Controlled_Chaos;
+namespace CCTheme;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
