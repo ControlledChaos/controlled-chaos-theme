@@ -2,12 +2,16 @@
 /**
  * Controlled Chaos Theme functions.
  *
- * @package WordPress
+ * @package    WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled Chaos 1.0.0
+ * @author     Greg Sweet <greg@ccdzine.com>
+ * @copyright  Copyright (c) 2017 - 2018, Greg Sweet
+ * @link       https://github.com/ControlledChaos/controlled-chaos-theme
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html
+ * @since      Controlled Chaos 1.0.0
  */
 
-namespace Controlled_Chaos;
+namespace CCTheme\Functions;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -18,14 +22,47 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 /**
  * Controlled Chaos functions class.
  *
- * @since Controlled_Chaos 1.0.0
+ * @since  1.0.0
+ * @access public
  */
-class Functions {
+class CCTheme_Functions {
+
+	/**
+	 * Return the instance.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return object
+	 */
+	public static function get_instance() {
+
+		static $instance = null;
+
+		if ( is_null( $instance ) ) {
+			$instance = new self;
+			$instance->hooks_filters();
+		}
+
+		return $instance;
+	}
 
 	/**
 	 * Constructor magic method.
+	 * 
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
-	public function __construct() {
+	public function __construct() {}
+
+	/**
+	 * Hooks and filters.
+	 * 
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function hooks_filters() {
 
 		// Swap html 'no-js' class with 'js'.
 		add_action( 'wp_head', [ $this, 'js_detect' ], 0 );
@@ -35,12 +72,6 @@ class Functions {
 
 		// Remove unpopular meta tags.
 		add_action( 'init', [ $this, 'head_cleanup' ] );
-
-		/**
-		 * Theme scripts.
-		 *
-		 * @since Controlled_Chaos 1.0.0
-		 */
 
 		// Frontend scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
@@ -74,6 +105,10 @@ class Functions {
 
 	/**
 	 * Replace 'no-js' class with 'js' in the <html> element when JavaScript is detected.
+	 * 
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
 	 */
 	public function js_detect() {
 
@@ -84,21 +119,23 @@ class Functions {
 	/**
 	 * Theme setup.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function setup() {
 
 		/**
 		 * Load domain for translation.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 		load_theme_textdomain( 'controlled-chaos' );
 
 		/**
 		 * Add theme support.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 
 		// Browser title tag support.
@@ -135,7 +172,7 @@ class Functions {
 		/**
 		 * Add Gutenberg support.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 
 		// Default color choices.
@@ -152,11 +189,12 @@ class Functions {
 			'wide-images' => true,
 			'colors'      => $gutenberg_colors,
 		] );
+		add_theme_support( 'editor-color-palette', '#444', '#eee', '#23282d', '#32373c', '#0073aa', '#00a0d2' );
 
 		/**
 		 * Add theme support.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 
 		// Customizer widget refresh support.
@@ -183,7 +221,7 @@ class Functions {
 		 * Three sizes per aspect ratio so that WordPress
 		 * will use srcset for responsive images.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 
 		// 16:9 HD Video.
@@ -229,7 +267,7 @@ class Functions {
 		 /**
 		 * Set content width.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 
 		if ( ! isset( $content_width ) ) {
@@ -238,6 +276,8 @@ class Functions {
 
 		/**
 		 * Register theme menus.
+		 * 
+		 * @since  1.0.0
 		 */
 		register_nav_menus( [
 				'main'   => apply_filters( 'cct_main_menu_name', esc_html__( 'Main Menu', 'controlled-chaos' ) ),
@@ -248,14 +288,14 @@ class Functions {
 		/**
 		 * Add stylesheet for the content editor.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 		add_editor_style( '/assets/css/editor-style.css', [ 'cct-admin' ], '', 'screen' );
 
 		/**
 		 * Disable Jetpack open graph. We have the open graph tags in the theme.
 		 *
-		 * @since Controlled_Chaos 1.0.0
+		 * @since 1.0.0
 		 */
 		if ( class_exists( 'Jetpack' ) ) {
 			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
@@ -266,7 +306,9 @@ class Functions {
 	/**
 	 * Clean up meta tags from the <head>.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function head_cleanup() {
 
@@ -279,7 +321,9 @@ class Functions {
 	/**
 	 * Frontend scripts.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function frontend_scripts() {
 
@@ -299,7 +343,9 @@ class Functions {
 	/**
 	 * Admin scripts.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function admin_scripts() {
 
@@ -310,7 +356,9 @@ class Functions {
 	/**
 	 * Frontend styles.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function frontend_styles() {
 
@@ -346,7 +394,9 @@ class Functions {
 	/**
 	 * Admin styles.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function admin_styles() {
 
@@ -357,7 +407,9 @@ class Functions {
 	/**
 	 * Login styles.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
 	 */
 	public function login_styles() {
 
@@ -368,7 +420,9 @@ class Functions {
 	/**
 	 * Theme dependencies.
 	 *
-	 * @since Controlled_Chaos 1.0.0
+	 * @since  1.0.0
+	 * @access private
+	 * @return void
 	 */
 	private function dependencies() {
 
@@ -396,5 +450,21 @@ class Functions {
 
 }
 
-// Run the Functions class.
-new Functions;
+/**
+ * Gets the instance of the CCTheme_Functions class.  This function is useful for quickly grabbing data
+ * used throughout the theme.
+ *
+ * @since  1.0.0
+ * @access public
+ * @return object
+ */
+function cctheme() {
+
+	$cctheme = CCTheme_Functions::get_instance();
+
+	return $cctheme;
+
+}
+
+// Runn the CCTheme_Functions class.
+cctheme();
