@@ -15,21 +15,21 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Body element.
  */
-class Controlled_Chaos_Body_Element {
+class Body_Schema {
 
 	/**
 	 * Constructor magic method.
 	 */
 	public function __construct() {
 
-		add_action( 'cct_body', [ $this, 'body' ] );
+		add_action( 'cct_body_schema', [ $this, 'schema' ] );
 
 	}
 
-	public function body() {
-
-		// Get plugin path to check for bbPress & BuddyPress
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	/**
+	 * Conditional Schema attributes.
+	 */
+	public function schema() {
 
 		// Change page slugs and template names as needed
 		if ( is_page( 'about' ) || is_page( 'about-us' ) || is_page_template( 'page-about.php' ) || is_page_template( 'about.php' ) ) {
@@ -50,14 +50,10 @@ class Controlled_Chaos_Body_Element {
 			$itemtype = esc_attr( 'Blog' );
 		}
 
-		$body     = '<body class="' . join( ' ', get_body_class() ) . '" itemscope="itemscope" itemtype="http://schema.org/' . $itemtype . '">';
-
-		$body_tag = apply_filters( 'cct_body_tag', $body );
-
-		echo $body_tag, "\r";
+		echo $itemtype;
 
 	}
 
 }
 
-$cct_body = new Controlled_Chaos_Body_Element;
+new Body_Schema;

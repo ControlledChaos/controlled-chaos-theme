@@ -20,12 +20,15 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
  *
  * @since Controlled_Chaos 1.0.0
  */
-class Controlled_Chaos_Functions {
+class Functions {
 
 	/**
 	 * Constructor magic method.
 	 */
 	public function __construct() {
+
+		// Swap html 'no-js' class with 'js'.
+		add_action( 'wp_head', [ $this, 'js_detect' ], 0 );
 
 		// Controlled Chaos theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
@@ -51,8 +54,12 @@ class Controlled_Chaos_Functions {
 		// Frontend styles.
 		 add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
-		// Admin styles.
-		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ] );
+		/**
+		 * Admin styles.
+		 *
+		 * Call late to override plugin styles.
+		 */
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ], 99 );
 
 		// Login styles.
 		add_action( 'login_enqueue_scripts', [ $this, 'login_styles' ] );
@@ -60,11 +67,17 @@ class Controlled_Chaos_Functions {
 		// Dependencies.
 		$this->dependencies();
 
-		// Register widgets.
-		add_action( 'widgets_init', [ $this, 'widgets' ] );
-
 		// Remove WooCommerce styles.
 		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+	}
+
+	/**
+	 * Replace 'no-js' class with 'js' in the <html> element when JavaScript is detected.
+	 */
+	public function js_detect() {
+
+		echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
 
 	}
 
@@ -121,7 +134,7 @@ class Controlled_Chaos_Functions {
 
 		/**
 		 * Add Gutenberg support.
-		 * 
+		 *
 		 * @since Controlled_Chaos 1.0.0
 		 */
 
@@ -139,10 +152,10 @@ class Controlled_Chaos_Functions {
 			'wide-images' => true,
 			'colors'      => $gutenberg_colors,
 		] );
-		
+
 		/**
 		 * Add theme support.
-		 * 
+		 *
 		 * @since Controlled_Chaos 1.0.0
 		 */
 
@@ -163,14 +176,14 @@ class Controlled_Chaos_Functions {
 
 		// Featured image support.
 		add_theme_support( 'post-thumbnails' );
-		
+
 		/**
 		 * Add image sizes.
-		 * 
+		 *
 		 * Three sizes per aspect ratio so that WordPress
 		 * will use srcset for responsive images.
-		 * 
-		 * @since Controlled_Chaos 1.0.2
+		 *
+		 * @since Controlled_Chaos 1.0.0
 		 */
 
 		// 16:9 HD Video.
@@ -182,7 +195,7 @@ class Controlled_Chaos_Functions {
 		add_image_size( __( 'banner', 'controlled-chaos' ), 1280, 549, true );
 		add_image_size( __( 'banner-md', 'controlled-chaos' ), 960, 411, true );
 		add_image_size( __( 'banner-sm', 'controlled-chaos' ), 640, 274, true );
-		
+
 		// Add image size for meta tags if companion plugin is not activated.
 		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
 			add_image_size( __( 'Meta Image', 'controlled-chaos' ), 1200, 630, true );
@@ -191,8 +204,8 @@ class Controlled_Chaos_Functions {
 		// Header support.
 		$header = [
 			'default-image'          => '',
-			'width'                  => 0,
-			'height'                 => 0,
+			'width'                  => 1280,
+			'height'                 => 549,
 			'flex-height'            => true,
 			'flex-width'             => true,
 			'uploads'                => true,
@@ -218,7 +231,7 @@ class Controlled_Chaos_Functions {
 		 *
 		 * @since Controlled_Chaos 1.0.0
 		 */
-		
+
 		if ( ! isset( $content_width ) ) {
 			$content_width = 1280;
 		}
@@ -271,9 +284,6 @@ class Controlled_Chaos_Functions {
 	public function frontend_scripts() {
 
 		wp_enqueue_script( 'jquery' );
-
-		// Get Modernizr from CDN.
-		wp_enqueue_script( 'modernizr',  'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' );
 
 		// HTML 5 support.
 		wp_enqueue_script( 'cct-html5',  get_theme_file_uri( '/assets/js/html5.min.js' ), [], '' );
@@ -363,56 +373,28 @@ class Controlled_Chaos_Functions {
 	private function dependencies() {
 
 		// Theme customizer.
-		require_once get_parent_theme_file_path( '/includes/customizer/class-customizer.php' );
+		require_once get_theme_file_path( '/includes/customizer/class-customizer.php' );
 
 		// Set up the <head> element.
-		require_once get_parent_theme_file_path( '/includes/head/class-head.php' );
+		require_once get_theme_file_path( '/includes/head/class-head.php' );
 
-		// Set up the <body> element.
-		require_once get_parent_theme_file_path( '/includes/template-tags/class-body-element.php' );
+		// Set up Scema attributes for the <body> element.
+		require_once get_theme_file_path( '/includes/template-tags/class-body-schema.php' );
 
-		// Set up the <body> element.
-		require_once get_parent_theme_file_path( '/includes/filters/class-template-filters.php' );
+		// Get template filters.
+		include get_theme_file_path( '/includes/filters/class-template-filters.php' );
 
-		// Content template parts.
-		require_once get_theme_file_path( '/template-parts/content/content.php' );
+		// Register sidebars.
+		require get_theme_file_path( '/includes/widgets/register-sidebars.php' );
 
 		// Blog navigation.
 		if ( ! is_singular() ) {
-			require_once get_theme_file_path( '/template-parts/navigation/class-blog-nav.php' );
+			require get_theme_file_path( '/template-parts/navigation/class-blog-nav.php' );
 		}
-
-	}
-
-	/**
-	 * Register widget areas.
-	 *
-	 * @since Controlled_Chaos 1.0.0
-	 */
-	public function widgets() {
-
-		// Aside widget filters
-		$sidebar_widget_name   = apply_filters( 'cct_sidebar_widget_name', esc_html__( 'Sidebar Widget Area', 'controlled-chaos' ) );
-		$sidebar_widget_desc   = apply_filters( 'cct_sidebar_widget_desc', esc_html__( '', 'controlled-chaos' ) );
-		$sidebar_before_widget = apply_filters( 'cct_sidebar_before_widget', '<div id="%1$s" class="widget sidebar-widget %2$s">' );
-		$sidebar_after_widget  = apply_filters( 'cct_sidebar_after_widget', '</div>' );
-		$sidebar_before_title  = apply_filters( 'cct_sidebar_before_title', '<h3 class="widget-title">' );
-		$sidebar_after_title   = apply_filters( 'cct_sidebar_after_title', '</h3>' );
-
-		// Register aside widget area
-		register_sidebar( array(
-			'name'          => $sidebar_widget_name,
-			'id'            => 'sidebar-widgets',
-			'description'   => $sidebar_widget_desc,
-			'before_widget' => $sidebar_before_widget,
-			'after_widget'  => $sidebar_after_widget,
-			'before_title'  => $sidebar_before_title,
-			'after_title'   => $sidebar_after_title,
-		) );
 
 	}
 
 }
 
-// Run the Controlled_Chaos_Functions class.
-$controlled_chaos_functions = new Controlled_Chaos_Functions;
+// Run the Functions class.
+new Functions;

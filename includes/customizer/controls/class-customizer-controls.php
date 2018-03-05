@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Customizer base class.
  */
-class Controlled_Chaos_Customizer_Controls {
+class Customizer_Controls {
 
     /**
 	 * Constructor magic method.
@@ -38,4 +38,4 @@ class Controlled_Chaos_Customizer_Controls {
 
 }
 
-$cct_customizer_controls = new Controlled_Chaos_Customizer_Controls;
+new Customizer_Controls;

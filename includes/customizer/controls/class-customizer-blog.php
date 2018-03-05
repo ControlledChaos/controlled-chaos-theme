@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Customizer blog controls.
  */
-class Controlled_Chaos_Customizer_Blog {
+class Customizer_Blog {
 
     /**
 	 * Constructor magic method.
@@ -103,4 +103,4 @@ class Controlled_Chaos_Customizer_Blog {
     
 }
 
-$cct_customizer_blog = new Controlled_Chaos_Customizer_Blog;
+new Customizer_Blog;

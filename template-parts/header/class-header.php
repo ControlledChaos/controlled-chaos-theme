@@ -9,13 +9,13 @@
 
 namespace Controlled_Chaos;
 
-// Restrict direct access
+// Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Header HTML template.
  */
-class Controlled_Chaos_Header {
+class Header {
 
     /**
 	 * Constructor magic method.
@@ -49,4 +49,5 @@ class Controlled_Chaos_Header {
 
 }
 
-$cct_header = new Controlled_Chaos_Header;
+// Run the Header class.
+new Header;

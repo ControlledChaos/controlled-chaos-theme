@@ -15,31 +15,44 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Content HTML template.
  */
-class Controlled_Chaos_Content {
+class Content {
+
+    /**
+	 * Constructor magic method.
+	 */
+	public function __construct() {
+
+        $this->partials();
+
+    }
 
     /**
 	 * Content partials.
      * 
      * @since Controlled_Chaos 1.0.0
 	 */
-    public static function partials() {
+    public function partials() {
 
         if ( is_front_page() && is_home() ) {
-            $content = get_template_part( 'template-parts/content/partials/content', 'home' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'home' );
         } elseif ( is_front_page() ) {
-            $content = get_template_part( 'template-parts/content/partials/content', 'front-page' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'front-page' );
         } elseif ( is_home() ) {
-            $content = get_template_part( 'template-parts/content/partials/content', 'home' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'home' );
         } elseif ( is_archive() ) {
-            $content = get_template_part( 'template-parts/content/partials/content', 'archive' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'archive' );
         } elseif ( is_search() ) {
-            $content = get_template_part( 'template-parts/content/partials/content', 'search' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'search' );
         } else {
-            $content = get_template_part( 'template-parts/content/partials/content', 'singular' );
+            $partial = get_template_part( 'template-parts/content/partials/content', 'singular' );
         }
 
-        return apply_filters( 'cct_content', $content );
+        $content = apply_filters( 'cct_content_part', $partial );
+        
+        echo $content;
 
     }
 
 }
+
+new Content;

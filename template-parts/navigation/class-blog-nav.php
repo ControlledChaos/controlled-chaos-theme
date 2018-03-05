@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled_Chaos 1.0.1
+ * @since Controlled_Chaos 1.0.0
  */
 
 namespace Controlled_Chaos;
@@ -15,14 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Blog pages navigation.
  */
-class Controlled_Chaos_Blog_Nav {
+class Blog_Nav {
 
     /**
 	 * Constructor magic method.
 	 */
 	public function __construct() {
-
-		add_action( 'cct_after_main', [ $this, 'nav' ] );
+		
+		add_action( 'cct_before_footer', [ $this, 'nav' ], 20 );
 
 	}
 	
@@ -41,4 +41,4 @@ class Controlled_Chaos_Blog_Nav {
 
 }
 
-$cct_blog_nav = new Controlled_Chaos_Blog_Nav;
+new Blog_Nav;

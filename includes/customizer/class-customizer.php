@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Customizer base class.
  */
-class Controlled_Chaos_Customizer {
+class Customizer {
 
     /**
 	 * Constructor magic method.
@@ -45,9 +45,11 @@ class Controlled_Chaos_Customizer {
 	 */
 	public function customizer( $wp_customize ) {
 
-        /**
-		 * Set site name and description to be previewed in real-time
-		 */
+		// Remove the theme switcher panel.
+		$wp_customize->remove_panel( 'themes' );
+		$wp_customize->remove_control( 'active_theme' );
+
+        // Set site name and description to be previewed in real-time.
 		$wp_customize->get_setting( 'blogname' )->transport='postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport='postMessage';
 
@@ -55,4 +57,4 @@ class Controlled_Chaos_Customizer {
 
 }
 
-$cct_customizer = new Controlled_Chaos_Customizer;
+new Customizer;

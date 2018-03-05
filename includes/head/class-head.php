@@ -9,13 +9,13 @@
 
 namespace Controlled_Chaos;
 
-// Restrict direct access
+// Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
  * Controlled_Chaos head template.
  */
-class Controlled_Chaos_Head {
+class Head {
 
 	/**
 	 * Constructor magic method.
@@ -23,7 +23,7 @@ class Controlled_Chaos_Head {
 	public function __construct() {
 
 		// Opening tags.
-		$this->open_html();
+		$this->head_begin();
 
 		// Dependencies, especially for meta tags.
 		$this->dependencies();
@@ -38,7 +38,7 @@ class Controlled_Chaos_Head {
 		$this->bookmarks();
 
 		// Close the head section.
-		$this->close_head();
+		$this->head_end();
 
 	}
 	
@@ -47,30 +47,26 @@ class Controlled_Chaos_Head {
 	 * 
 	 * @since Controlled_Chaos 1.0.0
 	 */
-	public function open_html() {
+	public function head_begin() {
 
-		get_template_part( 'includes/head/partials/class-open-html' );
+		require get_theme_file_path( '/includes/head/partials/head-begin.php' );
 
 	}
 
 	/**
-	 * Dependencies, especially for meta tags.
+	 * Dependencies use get_template_part for child themeing.
 	 * 
 	 * @since Controlled_Chaos 1.0.0
 	 */
 	public function dependencies() {
 
-		// Check for the Controlled Chaos companion plugin.
-		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
-			get_template_part( 'includes/head/partials/class-meta', 'url' );
-			get_template_part( 'includes/head/partials/class-meta', 'name' );
-			get_template_part( 'includes/head/partials/class-meta', 'type' );
-			get_template_part( 'includes/head/partials/class-meta', 'title' );
-			get_template_part( 'includes/head/partials/class-meta', 'description' );
-			get_template_part( 'includes/head/partials/class-meta', 'image' );
-			get_template_part( 'includes/head/partials/class-meta', 'author' );
-			get_template_part( 'includes/head/partials/class-meta', 'bookmarks' );
-		}
+		get_template_part( 'includes/head/class-meta', 'url' );
+		get_template_part( 'includes/head/class-meta', 'name' );
+		get_template_part( 'includes/head/class-meta', 'type' );
+		get_template_part( 'includes/head/class-meta', 'title' );
+		get_template_part( 'includes/head/class-meta', 'description' );
+		get_template_part( 'includes/head/class-meta', 'image' );
+		get_template_part( 'includes/head/class-meta', 'author' );
 
 	}
 
@@ -79,12 +75,9 @@ class Controlled_Chaos_Head {
 	 */
 	public function meta_tags() {
 
-		// Check for the Controlled Chaos companion plugin.
-		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
-			get_template_part( 'includes/head/partials/class-meta-tags', 'standard' );
-			get_template_part( 'includes/head/partials/class-meta-tags', 'open-graph' );
-			get_template_part( 'includes/head/partials/class-meta-tags', 'twitter' );
-		}
+		get_template_part( 'includes/head/partials/meta-tags', 'standard' );
+		get_template_part( 'includes/head/partials/meta-tags', 'open-graph' );
+		get_template_part( 'includes/head/partials/meta-tags', 'twitter' );
 
 	}
 
@@ -96,7 +89,7 @@ class Controlled_Chaos_Head {
 	public function bookmarks() {
 
 		if ( ! has_site_icon() ) {
-			do_action( 'controlled_chaos_bookmarks' );
+			get_template_part( 'includes/head/partials/meta', 'bookmarks' );
 		} else {
 			wp_site_icon();
 		}
@@ -108,9 +101,9 @@ class Controlled_Chaos_Head {
 	 * 
 	 * @since Controlled_Chaos 1.0.0
 	 */
-	public function close_head() {
+	public function head_end() {
 
-		echo '</head>' . "\r";
+		require get_theme_file_path( '/includes/head/partials/head-end.php' );
 
 	}
 	    

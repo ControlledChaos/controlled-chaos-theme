@@ -1,6 +1,6 @@
-/**
- * Supports queries
- */
+/*--------------------------------------------------------------
+# SUPPORTS QUERIES
+--------------------------------------------------------------*/
 
 /* When CSS Flexbox is not supported */
 @supports not ( (display: flex) or (display: flexbox) ) {
@@ -12,9 +12,9 @@
 
 }
 
-/**
- * WordPress queries
- */
+/*--------------------------------------------------------------
+# WORDPRESS QUERIES
+--------------------------------------------------------------*/
 @media screen and (max-width: 782px) {
 
 }
@@ -23,9 +23,9 @@
 
 }
 
-/**
- * Width queries
- */
+/*--------------------------------------------------------------
+# WIDTH QUERIES
+--------------------------------------------------------------*/
 
 /* Equal or lesser than Poker Face default width */
 @media screen and (max-width: 1280px) {
@@ -49,9 +49,9 @@
 
 }
 
-/**
- * Orientaion queries
- */
+/*--------------------------------------------------------------
+# ORIENTATION QUERIES
+--------------------------------------------------------------*/
 @media all and (orientation: portrait) {
 	/* Styles */
 }
@@ -60,16 +60,16 @@
 	/* Styles */
 }
 
-/**
- * Screen reader queries
- */
+/*--------------------------------------------------------------
+# SCREEN READER QUERIES
+--------------------------------------------------------------*/
 @media reader, speech, aural {
 
 }
 
-/**
- * Device specific queries
- */
+/*--------------------------------------------------------------
+# DEVICE-SPECIFIC QUERIES
+--------------------------------------------------------------*/
 
 /*
  * Smartphones (portrait and landscape)

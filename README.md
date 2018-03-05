@@ -1,6 +1,6 @@
 Controlled Chaos Theme
 ========================
-A basic, object-oriented WordPress starter theme or boilerplate.
+An object-oriented WordPress starter theme or boilerplate.
 
 Short array syntax requires PHP 5.4+
 

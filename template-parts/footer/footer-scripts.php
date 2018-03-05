@@ -1,17 +1,22 @@
 <?php
 /**
- * Sidebar opening tags and before sidebar actions.
+ * Additional footer scripts.
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
  * @since Controlled_Chaos 1.0.0
+ *
  */
 
 namespace Controlled_Chaos;
 
-// Restrict direct access
+// No direct access, please
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-do_action( 'cct_before_sidebar' );
+class Footer_Scripts {
 
-echo '<aside class="sidebar">', "\r";
+    // Add script functions here.
+
+}
+
+new Footer_Scripts;

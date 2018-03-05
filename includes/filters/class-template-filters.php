@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Template filters.
  */
-class Controlled_Chaos_Template_Filters {
+class Template_Filters {
 
 	/**
 	 * Constructor magic method.
@@ -37,7 +37,7 @@ class Controlled_Chaos_Template_Filters {
 			'thumbnail' => esc_html__( 'Thumbnail', 'controlled-chaos' ),
 			'medium'    => esc_html__( 'Medium', 'controlled-chaos' ),
             'large'     => esc_html__( 'Large', 'controlled-chaos' ),
-            'banner'     => esc_html__( 'Banner', 'controlled-chaos' ),
+            'banner'    => esc_html__( 'Banner', 'controlled-chaos' ),
             'video'     => esc_html__( 'HD Video', 'controlled-chaos' )
 		];
 
@@ -48,4 +48,4 @@ class Controlled_Chaos_Template_Filters {
 
 }
 
-$controlled_chaos_template_filters = new Controlled_Chaos_Template_Filters;
+new Template_Filters;

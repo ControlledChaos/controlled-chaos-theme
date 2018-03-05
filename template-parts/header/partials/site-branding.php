@@ -51,7 +51,7 @@ $logo = apply_filters( 'cct_logo', $output );
  * Output header content.
  */
 do_action( 'cct_before_header_content' ); ?>
-    <div class="wrapper header-content">
+    <div class="header-content global-wrapper header-wrapper">
     <?php if ( has_custom_logo() ) : ?>
         <div class="site-logo">
             <?php echo $logo; ?>

@@ -1,14 +1,44 @@
 <?php
 /**
- * Sidebar HTML template.
+ * Sidebar class.
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
  * @since Controlled_Chaos 1.0.0
  */
 
-// No direct access, please
+namespace Controlled_Chaos;
+
+// Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-get_template_part( 'template-parts/sidebar/sidebar' );
-$cct_sidebar = new Controlled_Chaos_Sidebar;
+/**
+ * Output for various sidebars and widget areas
+ * are added via template hooks for versatility.
+ */
+class Sidebar {
+
+    /**
+	 * Constructor magic method.
+	 */
+	public function __construct() {
+
+        // Get sidebar dependencies.
+        $this->dependencies();
+
+    }
+
+    /**
+     * Get sidebar dependencies.
+     */
+    public function dependencies() {
+
+        include get_theme_file_path( '/template-parts/widgets/sidebars.php' );
+        include get_theme_file_path( '/template-parts/widgets/footer.php' );
+
+    }
+
+}
+
+// Run the Sidebar class.
+new Sidebar;

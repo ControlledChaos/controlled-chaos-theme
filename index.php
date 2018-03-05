@@ -1,32 +1,48 @@
 <?php
 /**
- * Content template
+ * Content index class.
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
- * @since Controlled Chaos 1.0.1
+ * @since Controlled Chaos 1.0.0
  */
 namespace Controlled_Chaos;
 
-// Restrict direct access
+// Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-get_header(); ?>
-<div id="content" class="site-content wrapper">
-	<?php do_action( 'cct_before_main' ); ?>
-	<main class="main" role="main" itemscope itemprop="mainContentOfPage">
-		<?php do_action( 'cct_before_content' ); ?>
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post();
-			echo Controlled_Chaos_Content::partials();
-			endwhile;
-		else :
-			get_template_part( 'template-parts/content/partials/content', 'none' );
-		endif; ?>
-		<?php do_action( 'cct_after_content' ); ?>
-	</main>
-	<?php do_action( 'cct_after_main' ); ?>
-	<?php get_sidebar(); ?>
-</div><!-- site-content -->
-<?php get_footer();
+class Index {
+
+	/**
+	 * Constructor magic method.
+	 */
+	public function __construct() {
+
+		// Begin HTML and get <head> section.
+		get_header();
+
+		// Extensibility hook.
+		do_action( 'cct_before_post' );
+
+		/**
+		 * Run class for sidebars and widget areas.
+		 * 
+		 * Needs to run before the loop.
+		 */
+		get_sidebar();
+
+		// Content templates.
+		require get_theme_file_path( '/template-parts/content/content.php' );
+
+		// Extensibility hook.
+		do_action( 'cct_after_post' );
+
+		// Load scripts and close HTML.
+		get_footer();
+
+	}
+
+}
+
+// Run the Index class.
+new Index;

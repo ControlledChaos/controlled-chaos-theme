@@ -1,10 +1,10 @@
 /*
 Theme Name: Controlled Chaos
-Theme URI: https://github.com/ControlledChaos/ControlledChaosTheme
+Theme URI: https://github.com/ControlledChaos/controlled-chaos-theme
 Author: Controlled Chaos Design
 Author URI: http://ccdzine.com/
-Description: A basic, object-oriented WordPress starter theme.
-Version: 1.0.2
+Description: An object-oriented WordPress starter theme.
+Version: 1.0.0
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: controlled-chaos
@@ -75,7 +75,7 @@ body {
 	font-size: 1.6rem;
 }
 
-.wrapper {
+.global-wrapper {
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 2rem;
@@ -123,6 +123,15 @@ ol {
 /*--------------------------------------------------------------
 # NAVIGATION
 --------------------------------------------------------------*/
+.main-navigation ul {
+	list-style: none;
+}
+
+.main-navigation li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
 .posts-nav {
 	display: flex;
 	justify-content: space-between;
@@ -189,7 +198,7 @@ figure.aligncenter {
 
 img.alignnone,
 figure.alignnone {
-	margin: 0 1em 1em 0;
+	margin: 0;
 }
 
 .blog .post-thumbnail,
@@ -421,7 +430,7 @@ h2 + .search-form {
 	line-height: 1.5;
 	font-weight: bold;
 }
-	
+
 ol.comment-list {
 	list-style: none;
 }

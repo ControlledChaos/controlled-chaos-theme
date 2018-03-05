@@ -1,6 +1,6 @@
 <?php
 /**
- * Head element and header HTML.
+ * Begin HTML output.
  *
  * @package WordPress
  * @subpackage Controlled_Chaos
@@ -9,13 +9,117 @@
 
 namespace Controlled_Chaos;
 
-// Restrict direct access
+// Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-$cct_head = new Controlled_Chaos_Head;
+/**
+ * Begin HTML, get the head class, and
+ * load sitewide hooks.
+ */
+class HTML {
 
-do_action( 'cct_body' );
-do_action( 'cct_loader' );
-do_action( 'cct_topbar' );
-get_template_part( 'template-parts/header/class', 'controlled-chaos-header' );
-do_action( 'cct_header' );
+    /**
+	 * Constructor magic method.
+	 */
+    public function __construct() {
+
+        // Get dependencies.
+        $this->dependencies();
+
+        // Begin the HTML output.
+        $this->html();
+
+        // Get the <head> section.
+        $this->head();
+
+        // Output the <body> tag.
+        $this->body();
+
+        // Hook ready for a page loader.
+        $this->loader();
+
+        // Hook ready for a top bar.
+        $this->topbar();
+
+        // Get the site header.
+        $this->header();
+
+    }
+
+    /**
+     * Dependencies use get_theme_file_path for child themeing.
+     */
+    public function dependencies() {
+
+        // Get the site header output.
+        require_once get_theme_file_path( '/template-parts/header/class-header.php' );
+
+    }
+
+    /**
+     * Begin HTML output.
+     */
+    public function html() {
+
+        require_once get_theme_file_path( '/includes/head/partials/begin-html.php' );
+
+    }
+
+    /**
+     * Get the head class for the <head> section.
+     */
+    public function head() {
+
+        $head = new Head;
+
+        return $head;
+
+    }
+
+    /**
+     * Get the <body> tag output.
+     * 
+     * Body conditional Schema attributes
+     * found at inludes/template-tags/class-body-schema
+     */
+    public function body() {
+
+        require_once get_theme_file_path( '/includes/template-tags/partials/body-tag.php' );
+
+    }
+
+    /**
+     * Empty hook ready for page loader HTML.
+     */
+    public function loader() {
+
+        do_action( 'cct_loader' );
+
+    }
+
+    /**
+     * Empty hook ready for top bar HTML.
+     */
+    public function topbar() {
+
+        do_action( 'cct_topbar' );
+
+    }
+
+    /**
+     * Hook that adds the site header with
+     * branding and navigation hook.
+     * 
+     * The header is called with a hook for
+     * removal by theme builders.
+     */
+    public function header() {
+
+        do_action( 'cct_header' );
+
+    }
+
+}
+
+// Run the HTML class.
+new HTML;
