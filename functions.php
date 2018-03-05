@@ -25,7 +25,7 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
  * @since  1.0.0
  * @access public
  */
-final class CCTheme_Functions {
+final class Functions {
 
 	/**
 	 * Return the instance of the class.
@@ -469,7 +469,7 @@ final class CCTheme_Functions {
 }
 
 /**
- * Gets the instance of the CCTheme_Functions class.
+ * Gets the instance of the Functions class.
  * 
  * This function is useful for quickly grabbing data
  * used throughout the theme.
@@ -480,11 +480,11 @@ final class CCTheme_Functions {
  */
 function cctheme() {
 
-	$cctheme = CCTheme_Functions::get_instance();
+	$cctheme = Functions::get_instance();
 
 	return $cctheme;
 
 }
 
-// Run the CCTheme_Functions class.
+// Run the Functions class.
 cctheme();
