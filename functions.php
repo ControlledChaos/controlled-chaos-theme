@@ -466,5 +466,5 @@ function cctheme() {
 
 }
 
-// Runn the CCTheme_Functions class.
+// Run the CCTheme_Functions class.
 cctheme();
