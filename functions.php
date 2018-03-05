@@ -25,10 +25,10 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
  * @since  1.0.0
  * @access public
  */
-class CCTheme_Functions {
+final class CCTheme_Functions {
 
 	/**
-	 * Return the instance.
+	 * Return the instance of the class.
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -39,8 +39,18 @@ class CCTheme_Functions {
 		static $instance = null;
 
 		if ( is_null( $instance ) ) {
+
 			$instance = new self;
-			$instance->hooks_filters();
+
+			// Class hook functions.
+			$instance->hooks();
+
+			// Class filter functions.
+			$instance->filters();
+
+			// Theme dependencies.
+			$instance->dependencies();
+
 		}
 
 		return $instance;
@@ -62,7 +72,7 @@ class CCTheme_Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function hooks_filters() {
+	public function hooks() {
 
 		// Swap html 'no-js' class with 'js'.
 		add_action( 'wp_head', [ $this, 'js_detect' ], 0 );
@@ -79,11 +89,8 @@ class CCTheme_Functions {
 		// Admin scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
 
-		// jQuery UI fallback for HTML5 Contact Form 7 form fields.
-		add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
-
 		// Frontend styles.
-		 add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
+		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
 		/**
 		 * Admin styles.
@@ -95,8 +102,19 @@ class CCTheme_Functions {
 		// Login styles.
 		add_action( 'login_enqueue_scripts', [ $this, 'login_styles' ] );
 
-		// Dependencies.
-		$this->dependencies();
+	}
+
+	/**
+	 * Hooks and filters.
+	 * 
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function filters() {
+
+		// jQuery UI fallback for HTML5 Contact Form 7 form fields.
+		add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
 
 		// Remove WooCommerce styles.
 		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
@@ -451,7 +469,9 @@ class CCTheme_Functions {
 }
 
 /**
- * Gets the instance of the CCTheme_Functions class.  This function is useful for quickly grabbing data
+ * Gets the instance of the CCTheme_Functions class.
+ * 
+ * This function is useful for quickly grabbing data
  * used throughout the theme.
  *
  * @since  1.0.0
