@@ -1,7 +1,7 @@
 # Controlled Chaos Theme
 An object-oriented WordPress starter theme or boilerplate.
 
-NOT READY FOR USE! LOOP IS NOT FUNCTIONING PROPERLY.
+Experimental only. Not to be used as a child theme.
 
 Short array syntax requires PHP 5.4+
 
