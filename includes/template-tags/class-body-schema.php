@@ -18,18 +18,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Body_Schema {
 
 	/**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 
-		add_action( 'cct_body_schema', [ $this, 'schema' ] );
+		// add_action( 'cctheme_body_schema', [ $this, 'schema' ] );
 
 	}
 
 	/**
 	 * Conditional Schema attributes.
 	 */
-	public function schema() {
+	public static function schema() {
 
 		// Change page slugs and template names as needed
 		if ( is_page( 'about' ) || is_page( 'about-us' ) || is_page_template( 'page-about.php' ) || is_page_template( 'about.php' ) ) {
@@ -50,10 +50,16 @@ class Body_Schema {
 			$itemtype = esc_attr( 'Blog' );
 		}
 
-		echo $itemtype;
+		return $itemtype;
 
 	}
 
 }
 
-new Body_Schema;
+function cctheme_body_schema() {
+
+	$schema = Body_Schema::schema();
+
+	echo $schema;
+
+}

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Customizer_Controls {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 

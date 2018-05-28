@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Comments_Status {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
     public function __construct() {
 
@@ -37,7 +37,7 @@ class Controlled_Chaos_Comments_Status {
      */
     public static function none() {
 
-        $comments_none = apply_filters( 'cct_comments_none', sprintf( '<p class="comments-none-closed"><span class="comments-none">%1s</span></p>', __( 'Be the first to comment!', 'controlled-chaos' ) ) );
+        $comments_none = apply_filters( 'cctheme_comments_none', sprintf( '<p class="comments-none-closed"><span class="comments-none">%1s</span></p>', __( 'Be the first to comment!', 'controlled-chaos' ) ) );
 
         return $comments_none;
 
@@ -50,7 +50,7 @@ class Controlled_Chaos_Comments_Status {
      */
     public static function closed() {
 
-        $comments_closed = apply_filters( 'cct_comments_closed', sprintf( '<p class="comments-none-closed"><span class="comments-closed">%1s</span>.</p>', __( 'Comments are closed for this post', 'controlled-chaos' ) ) );
+        $comments_closed = apply_filters( 'cctheme_comments_closed', sprintf( '<p class="comments-none-closed"><span class="comments-closed">%1s</span>.</p>', __( 'Comments are closed for this post', 'controlled-chaos' ) ) );
 
         return $comments_closed;
 

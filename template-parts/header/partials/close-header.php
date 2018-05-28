@@ -12,4 +12,4 @@ namespace CCTheme;
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit; ?>
 </header>
-<?php do_action( 'cct_after_header' ); ?>
+<?php do_action( 'cctheme_after_header' ); ?>

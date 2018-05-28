@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Register_Sidebars {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 

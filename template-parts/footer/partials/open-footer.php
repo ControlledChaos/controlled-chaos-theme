@@ -12,6 +12,6 @@ namespace CCTheme;
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-do_action( 'cct_before_footer' );
+do_action( 'cctheme_before_footer' );
 
 echo '<footer>', "\r";

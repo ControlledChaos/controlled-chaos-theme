@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Comments_Form {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
     public function __construct() {
 
@@ -46,13 +46,13 @@ class Controlled_Chaos_Comments_Form {
             $required = '';
         }
 
-        $fields =  apply_filters( 'cct_comments_signup_fields', [
+        $fields =  apply_filters( 'cctheme_comments_signup_fields', [
             'author' => sprintf( '<p class="comment-form-author"><label for="author">%1s</label> %2s<input id="author" name="author" type="text" value="%3s"' . $aria_req . ' /></p>', __( 'Name', 'controlled-chaos' ), $required, esc_attr( $commenter['comment_author'] ) ),
             'email'  => sprintf( '<p class="comment-form-email"><label for="email">%1s</label> %2s<input id="email" name="email" type="text" value="%3s"' . $aria_req . ' /></p>', __( 'Email', 'controlled-chaos' ), $required, esc_attr(  $commenter['comment_author_email'] ) ),
             'url'    => sprintf( '<p class="comment-form-url"><label for="url">%1s</label><input id="url" name="url" type="text" value="%2s" /></p>',  __( 'Website', 'controlled-chaos' ), esc_attr( $commenter['comment_author_url'] ) ),
         ] );
 
-        $comments_args = apply_filters( 'cct_comments_labels', [
+        $comments_args = apply_filters( 'cctheme_comments_labels', [
             'id_form'              => 'comment-form',
             'id_submit'            => 'comment-submit',
             'class_submit'         => 'comment-submit',

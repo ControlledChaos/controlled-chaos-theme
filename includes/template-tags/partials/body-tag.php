@@ -12,4 +12,4 @@ namespace CCTheme;
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
-<body <?php body_class(); ?> itemscope="itemscope" itemtype="<?php do_action( 'cct_body_schema' ); ?>">
+<body <?php body_class(); ?> itemscope="itemscope" itemtype="<?php cctheme_body_schema(); ?>">

@@ -20,7 +20,7 @@ if ( is_front_page() && ! is_paged() ) {
 } else {
     $title = sprintf( '<p class="site-title" itemprop="name"><a href="%1$s" rel="home">%2$s</a></p>', esc_url( home_url( '/' ) ), get_bloginfo( 'name' ) );
 }
-$site_title = apply_filters( 'cct_site_title', $title );
+$site_title = apply_filters( 'cctheme_site_title', $title );
 
 /**
  * Site descrition, if any.
@@ -31,7 +31,7 @@ if ( ! empty( $description ) ) {
 } else {
     $description = '';
 }
-$site_description = apply_filters( 'cct_site_description', $description );
+$site_description = apply_filters( 'cctheme_site_description', $description );
 
 /**
  * Site logo.
@@ -45,12 +45,12 @@ if ( function_exists( 'the_custom_logo' ) ) :
         $output = the_custom_logo();
     }
 endif;
-$logo = apply_filters( 'cct_logo', $output );
+$logo = apply_filters( 'cctheme_logo', $output );
 
 /**
  * Output header content.
  */
-do_action( 'cct_before_header_content' ); ?>
+do_action( 'cctheme_before_header_content' ); ?>
     <div class="header-content global-wrapper header-wrapper">
     <?php if ( has_custom_logo() ) : ?>
         <div class="site-logo">
@@ -62,4 +62,4 @@ do_action( 'cct_before_header_content' ); ?>
             <?php echo $site_description, "\r"; ?>
         </div>
     </div><!-- header-content -->
-<?php do_action( 'cct_after_header_content' );
+<?php do_action( 'cctheme_after_header_content' );

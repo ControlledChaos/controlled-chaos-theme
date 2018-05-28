@@ -6,7 +6,7 @@
  * @subpackage Controlled_Chaos
  * @since Controlled Chaos 1.0.0
  */
-namespace CCTheme;
+namespace CCTheme\Index;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Index {
 
 	/**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 
@@ -22,7 +22,7 @@ class Index {
 		get_header();
 
 		// Extensibility hook.
-		do_action( 'cct_before_post' );
+		do_action( 'cctheme_before_post' );
 
 		/**
 		 * Run class for sidebars and widget areas.
@@ -32,13 +32,19 @@ class Index {
 		get_sidebar();
 
 		// Content templates.
-		require get_theme_file_path( '/template-parts/content/content.php' );
+		$this->content();
 
 		// Extensibility hook.
-		do_action( 'cct_after_post' );
+		do_action( 'cctheme_after_post' );
 
 		// Load scripts and close HTML.
 		get_footer();
+
+	}
+
+	public function content() {
+
+		require get_theme_file_path( '/template-parts/content/content.php' );
 
 	}
 

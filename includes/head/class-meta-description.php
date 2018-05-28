@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Meta_Description {
 
 	/**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 

@@ -14,4 +14,4 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 echo '</footer>', "\r";
 
-do_action( 'cct_after_footer' );
+do_action( 'cctheme_after_footer' );

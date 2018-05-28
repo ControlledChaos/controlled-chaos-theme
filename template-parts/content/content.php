@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Content {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 
@@ -47,7 +47,7 @@ class Content {
             $partial = get_template_part( 'template-parts/content/partials/content', 'singular' );
         }
 
-        $content = apply_filters( 'cct_content_part', $partial );
+        $content = apply_filters( 'cctheme_content_part', $partial );
         
         echo $content;
 

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Footer {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 
@@ -48,4 +48,4 @@ class Controlled_Chaos_Footer {
 
 }
 
-$cct_footer = new Controlled_Chaos_Footer;
+$cctheme_footer = new Controlled_Chaos_Footer;

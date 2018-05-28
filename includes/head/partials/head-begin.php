@@ -13,7 +13,7 @@ namespace CCTheme;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 $meta_viewport = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>';
-$viewport      = apply_filters( 'cct_meta_viewport', $meta_viewport );
+$viewport      = apply_filters( 'cctheme_meta_viewport', $meta_viewport );
 
 if ( is_home() && ! is_front_page() ) {
     $link = get_permalink( get_option( 'page_for_posts' ) );
@@ -23,7 +23,7 @@ if ( is_home() && ! is_front_page() ) {
     $link = get_permalink();
 }
 
-$canonical = apply_filters( 'cct_canonical_link', $link ); ?>
+$canonical = apply_filters( 'cctheme_canonical_link', $link ); ?>
 
 <head id="<?php echo get_bloginfo( 'wpurl' ); ?>" data-template-set="<?php echo get_template(); ?>">
 <?php echo sprintf( '<meta charset="%1s">', get_bloginfo( 'charset' ) ); ?>

@@ -18,15 +18,15 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Sidebar_Widgets {
 
     /**
-	 * Constructor magic method.
+	 * Initialize the class.
 	 */
 	public function __construct() {
 
         // Add primary sidebar.
-        add_action( 'cct_content_aside', [ $this, 'primary' ], 20 );
+        add_action( 'cctheme_content_aside', [ $this, 'primary' ], 20 );
 
         // Add primary sidebar.
-        add_action( 'cct_content_aside', [ $this, 'secondary' ], 21 );
+        add_action( 'cctheme_content_aside', [ $this, 'secondary' ], 21 );
 
     }
 
