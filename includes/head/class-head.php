@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Head {
 
 	/**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 

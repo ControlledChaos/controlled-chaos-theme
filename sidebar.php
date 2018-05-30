@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Sidebar {
 
     /**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 

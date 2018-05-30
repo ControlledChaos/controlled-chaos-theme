@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Template_Filters {
 
 	/**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 
@@ -41,7 +41,7 @@ class Template_Filters {
             'video'     => esc_html__( 'HD Video', 'controlled-chaos' )
 		];
 
-		$insert_sizes = apply_filters( 'cctheme_insert_image_sizes', $sizes );
+		$insert_sizes = apply_filters( 'cct_insert_image_sizes', $sizes );
 		return $insert_sizes;
 
     }

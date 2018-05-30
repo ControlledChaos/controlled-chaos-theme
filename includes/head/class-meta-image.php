@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Meta_Image {
 
 	/**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 

@@ -86,7 +86,7 @@ if ( ! in_array( $max, $links ) ) {
 } else {
     $last = null;
 }
-$label = apply_filters( 'cctheme_numeric_pagination_label', __( 'Page: ', 'controlled-chaos' ) ); ?>
+$label = apply_filters( 'cct_numeric_pagination_label', __( 'Page: ', 'controlled-chaos' ) ); ?>
 <nav class="numeric-pagination">
     <label class="numeric-pagination-label" for="numeric-pagination-list"><?php echo $label; ?></label>
     <ul id="numeric-pagination-list">

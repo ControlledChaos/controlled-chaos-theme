@@ -12,11 +12,10 @@ namespace CCTheme;
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-    do_action( 'cctheme_before_main' ); ?>
+    do_action( 'cct_before_main' ); ?>
     
 	<main class="main" role="main" itemscope itemprop="mainContentOfPage">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-		<?php do_action( 'cctheme_before_article' ); ?>
+		<?php do_action( 'cct_before_article' ); ?>
         <article class="hentry" id="post-<?php the_ID(); ?>" role="article">
             <header class="entry-header">
                 <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
@@ -26,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
             if ( '' !== get_the_post_thumbnail() ) : ?>
                 <div class="post-thumbnail">
                     <a href="<?php the_permalink(); ?>"><?php
-                    $size = apply_filters( 'cctheme_search_thumbnail_size', 'thumbnail' );
-                    $args = apply_filters( 'cctheme_search_thumbnail_args', [
+                    $size = apply_filters( 'cct_search_thumbnail_size', 'thumbnail' );
+                    $args = apply_filters( 'cct_search_thumbnail_args', [
                         'class' => 'alignnone'
                     ] );
                     echo get_the_post_thumbnail( $post->ID, $size, $args ); ?></a>
@@ -36,7 +35,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                 the_excerpt(); ?>
             </div><!-- entry-content -->
         </article>
-		<?php do_action( 'cctheme_after_article' ); ?>
-    <?php endwhile; endif; ?>
+		<?php do_action( 'cct_after_article' ); ?>
 	</main>
-	<?php do_action( 'cctheme_after_main' ); ?>
+	<?php do_action( 'cct_after_main' ); ?>

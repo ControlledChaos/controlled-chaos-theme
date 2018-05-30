@@ -12,5 +12,5 @@ namespace CCTheme;
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-do_action( 'cctheme_before_header' ); ?>
+do_action( 'cct_before_header' ); ?>
 <header class="site-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/Organization">

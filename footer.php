@@ -16,18 +16,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Footer {
 
     /**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 
         // Open hook.
-        do_action( 'cctheme_before_footer' );
+        do_action( 'cct_before_footer' );
 
         // Get footer HTML output.
         $this->footer();
 
         // Open hook.
-        do_action( 'cctheme_after_footer' );
+        do_action( 'cct_after_footer' );
 
         // Get additional footer scripts.
         $this->scripts();

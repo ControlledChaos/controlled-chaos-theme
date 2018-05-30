@@ -18,11 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Header {
 
     /**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 
-        add_action( 'cctheme_header', [ $this, 'partials' ] );
+        add_action( 'cct_header', [ $this, 'partials' ] );
 
     }
 

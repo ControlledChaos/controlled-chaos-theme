@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class No_Sidebars {
 
 	/**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
 	public function __construct() {
 
@@ -26,10 +26,10 @@ class No_Sidebars {
 		get_header();
 		
 		// Add a page content wrapper.
-		add_action( 'cctheme_before_post', [ $this, 'open_wrapper' ] );
+		add_action( 'cct_before_post', [ $this, 'open_wrapper' ] );
 
 		// Page content wrapper hook.
-		do_action( 'cctheme_before_post' );
+		do_action( 'cct_before_post' );
 
 		/**
 		 * The get_siderbar function is still needed for other widget areas.
@@ -60,13 +60,13 @@ class No_Sidebars {
 		}
 
 		// Conditionally displays the widgetized content asides.
-		do_action( 'cctheme_sidebars' );
+		do_action( 'cct_sidebars' );
 		
 		// End the page content wrapper.
-		add_action( 'cctheme_after_post', [ $this, 'close_wrapper' ] );
+		add_action( 'cct_after_post', [ $this, 'close_wrapper' ] );
 
 		// End page content wrapper hook.
-		do_action( 'cctheme_after_post' );
+		do_action( 'cct_after_post' );
 
 		// Load scripts and close HTML.
 		get_footer();

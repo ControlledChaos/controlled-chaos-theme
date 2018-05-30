@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Blog content format.
  */
-function cctheme_sanitize_blog_content_format( $input ) {
+function cct_sanitize_blog_content_format( $input ) {
 
     $valid = [ 'content', 'excerpt' ];
 
@@ -27,7 +27,7 @@ function cctheme_sanitize_blog_content_format( $input ) {
 /**
  * Archive content format.
  */
-function cctheme_sanitize_archive_content_format( $input ) {
+function cct_sanitize_archive_content_format( $input ) {
 
     $valid = [ 'content', 'excerpt' ];
 
@@ -41,7 +41,7 @@ function cctheme_sanitize_archive_content_format( $input ) {
 /**
  * Blog/archive navigation format.
  */
-function cctheme_sanitize_blog_navigation_format( $input ) {
+function cct_sanitize_blog_navigation_format( $input ) {
 
     $valid = [ 'standard', 'numeric' ];
 

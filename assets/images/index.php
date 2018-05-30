@@ -1,2 +1,2 @@
 <?php
-// Security file.
+// Silence is golden.

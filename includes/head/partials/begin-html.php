@@ -21,7 +21,7 @@ $language = get_language_attributes();
 
 // Apply filter for adding classes or more attributes.
 $tag      = '<html ' . $language . ' class="no-js">';
-$html_tag = apply_filters( 'cctheme_html_tag', $tag );
+$html_tag = apply_filters( 'cct_html_tag', $tag );
 
 ?>
 <!DOCTYPE html>

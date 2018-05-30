@@ -20,8 +20,8 @@ if ( is_search() ) {
     $next = __( 'Next Page', 'controlled-chaos' );
 }
 
-$prev_posts = apply_filters( 'cctheme_prev_posts_label', sprintf( '<span>%1s</span>', $prev ) );
-$next_posts = apply_filters( 'cctheme_next_posts_label', sprintf( '<span>%1s</span>', $next ) );
+$prev_posts = apply_filters( 'cct_prev_posts_label', sprintf( '<span>%1s</span>', $prev ) );
+$next_posts = apply_filters( 'cct_next_posts_label', sprintf( '<span>%1s</span>', $next ) );
 ?>
 <nav class="posts-nav">
 	<span class="prev-page" rel="prev"><?php previous_posts_link( $prev_posts ); ?></span>

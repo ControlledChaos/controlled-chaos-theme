@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class HTML {
 
     /**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
     public function __construct() {
 
@@ -93,7 +93,7 @@ class HTML {
      */
     public function loader() {
 
-        do_action( 'cctheme_loader' );
+        do_action( 'cct_loader' );
 
     }
 
@@ -102,7 +102,7 @@ class HTML {
      */
     public function topbar() {
 
-        do_action( 'cctheme_topbar' );
+        do_action( 'cct_topbar' );
 
     }
 
@@ -115,7 +115,7 @@ class HTML {
      */
     public function header() {
 
-        do_action( 'cctheme_header' );
+        do_action( 'cct_header' );
 
     }
 

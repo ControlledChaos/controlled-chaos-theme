@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 class Controlled_Chaos_Comments_Heading {
 
     /**
-	 * Initialize the class.
+	 * Constructor magic method.
 	 */
     public function __construct() {
 
