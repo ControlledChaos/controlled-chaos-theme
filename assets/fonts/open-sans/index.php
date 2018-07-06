@@ -1,2 +1,2 @@
 <?php
-// Silence is golden.
+// Empty index for security purposes.

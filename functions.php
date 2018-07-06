@@ -453,6 +453,9 @@ final class Functions {
 		// Set up Scema attributes for the <body> element.
 		require_once get_theme_file_path( '/includes/template-tags/class-body-schema.php' );
 
+		// Get template tags.
+		require_once get_theme_file_path( '/includes/template-tags/template-tags.php' );
+
 		// Get template filters.
 		include get_theme_file_path( '/includes/filters/class-template-filters.php' );
 

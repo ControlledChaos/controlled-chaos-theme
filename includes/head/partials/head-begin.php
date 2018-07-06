@@ -38,4 +38,13 @@ $canonical = apply_filters( 'cct_canonical_link', $link ); ?>
     echo sprintf( '<link rel="pingback" href="%s" />', get_bloginfo( 'pingback_url' ) );
 } ?>
 <link href="<?php echo $canonical; ?>" rel="canonical" />
-<?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; }
+<?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; } ?>
+<link rel='dns-prefetch' href='//v0.wordpress.com'/>
+<link rel='dns-prefetch' href='//jetpack.wordpress.com'/>
+<link rel='dns-prefetch' href='//s0.wp.com'/>
+<link rel='dns-prefetch' href='//s1.wp.com'/>
+<link rel='dns-prefetch' href='//s2.wp.com'/>
+<link rel='dns-prefetch' href='//public-api.wordpress.com'/>
+<link rel='dns-prefetch' href='//0.gravatar.com'/>
+<link rel='dns-prefetch' href='//1.gravatar.com'/>
+<link rel='dns-prefetch' href='//2.gravatar.com'/>
