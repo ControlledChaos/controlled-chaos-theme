@@ -3,7 +3,7 @@
  * Controlled Chaos Theme functions.
  *
  * @package    WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @author     Greg Sweet <greg@ccdzine.com>
  * @copyright  Copyright (c) 2017 - 2018, Greg Sweet
  * @link       https://github.com/ControlledChaos/controlled-chaos-theme
@@ -11,7 +11,7 @@
  * @since      Controlled Chaos 1.0.0
  */
 
-namespace CCTheme\Functions;
+namespace CC_Theme\Functions;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;

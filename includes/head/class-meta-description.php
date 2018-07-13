@@ -3,16 +3,16 @@
  * Description meta tag.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since  1.0.0
  */
 
-namespace CCTheme;
+namespace CC_Theme;
 
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Controlled_Chaos_Meta_Description {
+class Controlled_Chaos_Theme_Meta_Description {
 
 	/**
 	 * Constructor magic method.
@@ -42,5 +42,5 @@ class Controlled_Chaos_Meta_Description {
 
 }
 
-// Run the Controlled_Chaos_Meta_Description class.
-$controlled_chaos_meta_description = new Controlled_Chaos_Meta_Description;
+// Run the Controlled_Chaos_Theme_Meta_Description class.
+$controlled_chaos_meta_description = new Controlled_Chaos_Theme_Meta_Description;

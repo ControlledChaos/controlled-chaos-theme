@@ -1,19 +1,19 @@
 <?php
 /**
- * Controlled_Chaos head template.
+ * Controlled_Chaos_Theme head template.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since  1.0.0
  */
 
-namespace CCTheme;
+namespace CC_Theme;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Controlled_Chaos head template.
+ * Controlled_Chaos_Theme head template.
  */
 class Head {
 

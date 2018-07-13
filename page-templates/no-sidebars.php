@@ -7,10 +7,10 @@
  * Description: Does not load the primary or secondary sidebars.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since Controlled Chaos 1.0.0
  */
-namespace CCTheme;
+namespace CC_Theme;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) exit;

@@ -3,16 +3,16 @@
  * Title meta tag.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since  1.0.0
  */
 
-namespace CCTheme;
+namespace CC_Theme;
 
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Controlled_Chaos_Meta_Title {
+class Controlled_Chaos_Theme_Meta_Title {
 
 	/**
 	 * Constructor magic method.
@@ -42,5 +42,5 @@ class Controlled_Chaos_Meta_Title {
 
 }
 
-// Run the Controlled_Chaos_Meta_Title class.
-$controlled_chaos_meta_title = new Controlled_Chaos_Meta_Title;
+// Run the Controlled_Chaos_Theme_Meta_Title class.
+$controlled_chaos_meta_title = new Controlled_Chaos_Theme_Meta_Title;

@@ -3,11 +3,11 @@
  * Post comments form arguments.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since  1.0.0
  */
 
-namespace CCTheme;
+namespace CC_Theme;
 
 // Restrict direct access
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Post comments form arguments.
  */
-class Controlled_Chaos_Comments_Form {
+class Controlled_Chaos_Theme_Comments_Form {
 
     /**
 	 * Constructor magic method.
@@ -75,4 +75,4 @@ class Controlled_Chaos_Comments_Form {
 
 }
 
-$controlled_chaos_comments_form = new Controlled_Chaos_Comments_Form;
+$controlled_chaos_comments_form = new Controlled_Chaos_Theme_Comments_Form;

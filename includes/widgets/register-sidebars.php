@@ -3,11 +3,11 @@
  * Register sidebar widget areas.
  *
  * @package WordPress
- * @subpackage Controlled_Chaos
+ * @subpackage Controlled_Chaos_Theme
  * @since  1.0.0
  */
 
-namespace CCTheme;
+namespace CC_Theme;
 
 // No direct access, please
 if ( ! defined( 'ABSPATH' ) ) exit;
