@@ -5,7 +5,7 @@ An object-oriented WordPress starter theme or boilerplate.
 ![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)
 ![PHP version from PHP-Eye](https://img.shields.io/php-eye/symfony/symfony.svg?style=flat-square)
 
-![Controlled Chaos Plugin cover image](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/controlled-chaos-plugin-readme-header.jpg)
+<span style="font-weight: bold; color: #d00">I made some breaking changes. Check back soon!</span>
 
 ## Experimental Only
 
