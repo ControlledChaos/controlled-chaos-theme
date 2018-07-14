@@ -5,7 +5,7 @@ An object-oriented WordPress starter theme or boilerplate.
 ![WordPress](https://img.shields.io/wordpress/v/akismet.svg?style=flat-square)
 ![PHP version from PHP-Eye](https://img.shields.io/php-eye/symfony/symfony.svg?style=flat-square)
 
-<span style="font-weight: bold; color: #d00">I made some breaking changes. Check back soon!</span>
+**_I made some breaking changes. Check back soon!_**
 
 ## Experimental Only
 
