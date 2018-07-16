@@ -58,7 +58,7 @@ final class Functions {
 
 	/**
 	 * Constructor magic method.
-	 * 
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
@@ -67,7 +67,7 @@ final class Functions {
 
 	/**
 	 * Hooks and filters.
-	 * 
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
@@ -106,7 +106,7 @@ final class Functions {
 
 	/**
 	 * Hooks and filters.
-	 * 
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
@@ -123,7 +123,7 @@ final class Functions {
 
 	/**
 	 * Replace 'no-js' class with 'js' in the <html> element when JavaScript is detected.
-	 * 
+	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return string
@@ -195,19 +195,40 @@ final class Functions {
 
 		// Default color choices.
 		$gutenberg_colors = apply_filters( 'cct_gutenberg_colors', [
-			'#444',
-			'#eee',
-			'#23282d',
-			'#32373c',
-			'#0073aa',
-			'#00a0d2'
+			[
+				'name'  => __( 'Dark Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-dark-gray',
+				'color' => '#333',
+			],
+			[
+				'name'  => __( 'White', 'controlled-chaos' ),
+				'slug'  => 'cct-white',
+				'color' => '#fff',
+			],
+			[
+				'name'  => __( 'W0rdPress Dark Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-dark-gray',
+				'color' => '#23282d',
+			],
+			[
+				'name'  => __( 'W0rdPress Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-gray',
+				'color' => '#32373c',
+			],
+			[
+				'name'  => __( 'W0rdPress Medium Blue', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-medium-blue',
+				'color' => '#0073aa',
+			],
+			[
+				'name'  => __( 'W0rdPress Light Blue', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-light-blue',
+				'color' => '#00a0d2',
+			]
 		] );
+		add_theme_support( 'editor-color-palette', $gutenberg_colors );
 
-		add_theme_support( 'gutenberg', [
-			'wide-images' => true,
-			'colors'      => $gutenberg_colors,
-		] );
-		add_theme_support( 'editor-color-palette', '#444', '#eee', '#23282d', '#32373c', '#0073aa', '#00a0d2' );
+		add_theme_support( 'align-wide' );
 
 		/**
 		 * Add theme support.
@@ -294,13 +315,13 @@ final class Functions {
 
 		/**
 		 * Register theme menus.
-		 * 
+		 *
 		 * @since  1.0.0
 		 */
 		register_nav_menus( [
-				'main'   => apply_filters( 'cct_main_menu_name', esc_html__( 'Main Menu', 'controlled-chaos' ) ),
-				'footer' => apply_filters( 'cct_footer_menu_name', esc_html__( 'Footer Menu', 'controlled-chaos' ) ),
-				'social' => apply_filters( 'cct_social_menu_name', esc_html__( 'Social Menu', 'controlled-chaos' ) )
+			'main'   => apply_filters( 'cct_main_menu_name', esc_html__( 'Main Menu', 'controlled-chaos' ) ),
+			'footer' => apply_filters( 'cct_footer_menu_name', esc_html__( 'Footer Menu', 'controlled-chaos' ) ),
+			'social' => apply_filters( 'cct_social_menu_name', esc_html__( 'Social Menu', 'controlled-chaos' ) )
 		] );
 
 		/**
@@ -473,7 +494,7 @@ final class Functions {
 
 /**
  * Gets the instance of the Functions class.
- * 
+ *
  * This function is useful for quickly grabbing data
  * used throughout the theme.
  *
