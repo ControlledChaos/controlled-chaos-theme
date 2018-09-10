@@ -25,7 +25,7 @@ class Controlled_Chaos_Theme_Meta_Image {
 
 	/**
 	 * Image meta tag.
-	 * 
+	 *
 	 * @since  1.0.0
 	 */
 	public function image() {
@@ -34,7 +34,8 @@ class Controlled_Chaos_Theme_Meta_Image {
 
         if ( ! is_404() ) {
             $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'Meta Image', [ 1200, 630 ], true, '' );
-        }
+		}
+
         if ( has_post_thumbnail() ) {
             $src = $image[0];
         } else {
@@ -42,7 +43,7 @@ class Controlled_Chaos_Theme_Meta_Image {
         }
 
         echo $src;
-		
+
 	}
 
 }

@@ -26,13 +26,13 @@ class Head {
 		$this->head_begin();
 
 		// Dependencies, especially for meta tags.
-		$this->dependencies();
+		// $this->dependencies();
 
 		// Core wp_head() function.
 		wp_head();
 
 		// Meta tags for SEO and embedded links.
-		$this->meta_tags();
+		// $this->meta_tags();
 
 		// Conditionally get bookmarks.
 		$this->bookmarks();
@@ -41,10 +41,10 @@ class Head {
 		$this->head_end();
 
 	}
-	
+
 	/**
 	 * Opening tags.
-	 * 
+	 *
 	 * @since  1.0.0
 	 */
 	public function head_begin() {
@@ -55,7 +55,7 @@ class Head {
 
 	/**
 	 * Dependencies use get_template_part for child themeing.
-	 * 
+	 *
 	 * @since  1.0.0
 	 */
 	public function dependencies() {
@@ -83,7 +83,7 @@ class Head {
 
 	/**
 	 * Conditionally get bookmarks.
-	 * 
+	 *
 	 * @since  1.0.0
 	 */
 	public function bookmarks() {
@@ -98,7 +98,7 @@ class Head {
 
 	/**
 	 * Close the head section.
-	 * 
+	 *
 	 * @since  1.0.0
 	 */
 	public function head_end() {
@@ -106,5 +106,5 @@ class Head {
 		require get_theme_file_path( '/includes/head/partials/head-end.php' );
 
 	}
-	    
+
 }

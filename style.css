@@ -11,10 +11,9 @@ Text Domain: controlled-chaos
 Tags: one-column, accessibility-ready, custom-colors, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, theme-options, threaded-comments, translation-ready
 */
 
-/*--------------------------------------------------------------
- # RESET
---------------------------------------------------------------*/
-
+/**
+ * Browser reset
+ */
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, button, input, select, textarea, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; vertical-align: baseline; background: transparent; }
 article, aside, details, div, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
 audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
@@ -66,14 +65,15 @@ b, strong, optgroup { font-weight: bold; }
 /* .clearfix class for clearing floats */
 .clearfix { clear: both; display: block; height: 0; overflow: hidden; zoom: 1; }
 
-/*--------------------------------------------------------------
-# GLOBAL
---------------------------------------------------------------*/
+/**
+ * General
+ */
 body {
 	background: #fff;
 	font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 	font-size: 1.6rem;
 	line-height: 1.5;
+	color: #23282d;
 }
 
 .global-wrapper {
@@ -97,7 +97,7 @@ h6,
 p,
 ul,
 ol {
-	margin-top: 1em;	
+	margin-top: 1em;
 }
 
 .entry-content ul,
@@ -107,9 +107,9 @@ ol {
 	margin-left: 1em;
 }
 
-/*--------------------------------------------------------------
-# HEADER
---------------------------------------------------------------*/
+/**
+ * Header
+ */
 .site-title {
 	/* Match <p> tag to <h1> tag on front page */
 	font-size: 3.2rem;
@@ -120,9 +120,9 @@ ol {
 	text-decoration: none;
 }
 
-/*--------------------------------------------------------------
-# NAVIGATION
---------------------------------------------------------------*/
+/**
+ * Navigation
+ */
 .main-navigation ul {
 	list-style: none;
 }
@@ -162,9 +162,9 @@ ol {
 	font-weight: bold;
 }
 
-/*--------------------------------------------------------------
-# IMAGES
---------------------------------------------------------------*/
+/**
+ * Images
+ */
 img {
 	font-size: 75%; /* alt text */
 }
@@ -279,9 +279,9 @@ figure.alignnone {
 	margin-right: 0.5em;
 }
 
-/*--------------------------------------------------------------
-# FORMS
---------------------------------------------------------------*/
+/**
+ * Forms
+ */
 form * + * {
 	margin-top: 1em;
 }
@@ -395,7 +395,7 @@ option {}
 	color: #888 !important;
 }
 
-/* Search */
+/* Search form */
 .search-form {
 	display: -webkit-box;
 	display: -moz-box;
@@ -423,9 +423,9 @@ h2 + .search-form {
 
 .search-submit {}
 
-/*--------------------------------------------------------------
-# COMMENTS
---------------------------------------------------------------*/
+/**
+ * Comments
+ */
 .comments-section {
 	margin-top: 2em;
 	clear: both;
@@ -596,10 +596,9 @@ ol.comment-list li.thread-even {}
 
 ol.comment-list li.thread-odd {}
 
-/*--------------------------------------------------------------
-# MISCELLANEOUS
---------------------------------------------------------------*/
-
+/**
+ * Miscellaneous
+ */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	height: 1px;

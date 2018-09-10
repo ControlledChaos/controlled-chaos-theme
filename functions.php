@@ -80,6 +80,9 @@ final class Functions {
 		// Controlled Chaos theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 
+		// Disable custom colors in the editor.
+		add_action( 'after_setup_theme', [ $this, 'editor_custom_color' ] );
+
 		// Remove unpopular meta tags.
 		add_action( 'init', [ $this, 'head_cleanup' ] );
 
@@ -188,17 +191,31 @@ final class Functions {
 		 ] );
 
 		/**
-		 * Add Gutenberg support.
+		 * Add editor support.
 		 *
 		 * @since 1.0.0
 		 */
 
-		// Default color choices.
-		$gutenberg_colors = apply_filters( 'cct_gutenberg_colors', [
+		/**
+		 * Color arguments.
+		 *
+		 * Some WordPress admin colors used here for demonstration.
+		 */
+		$color_args = [
 			[
-				'name'  => __( 'Dark Gray', 'controlled-chaos' ),
-				'slug'  => 'cct-dark-gray',
-				'color' => '#333',
+				'name'  => __( 'WordPress Dark Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-dark-gray',
+				'color' => '#23282d',
+			],
+			[
+				'name'  => __( 'WordPress Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-gray',
+				'color' => '#32373c',
+			],
+			[
+				'name'  => __( 'WordPress Pale Gray', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-pale-gray',
+				'color' => '#edeff0',
 			],
 			[
 				'name'  => __( 'White', 'controlled-chaos' ),
@@ -206,27 +223,37 @@ final class Functions {
 				'color' => '#fff',
 			],
 			[
-				'name'  => __( 'W0rdPress Dark Gray', 'controlled-chaos' ),
-				'slug'  => 'cct-wp-dark-gray',
-				'color' => '#23282d',
-			],
-			[
-				'name'  => __( 'W0rdPress Gray', 'controlled-chaos' ),
-				'slug'  => 'cct-wp-gray',
-				'color' => '#32373c',
-			],
-			[
-				'name'  => __( 'W0rdPress Medium Blue', 'controlled-chaos' ),
+				'name'  => __( 'WordPress Medium Blue', 'controlled-chaos' ),
 				'slug'  => 'cct-wp-medium-blue',
-				'color' => '#0073aa',
+				'color' => '#0085ba',
 			],
 			[
-				'name'  => __( 'W0rdPress Light Blue', 'controlled-chaos' ),
+				'name'  => __( 'WordPress Light Blue', 'controlled-chaos' ),
 				'slug'  => 'cct-wp-light-blue',
 				'color' => '#00a0d2',
+			],
+			[
+				'name'  => __( 'WordPress Success Green', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-success-green',
+				'color' => '#46b450',
+			],
+			[
+				'name'  => __( 'WordPress Error Red', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-error-red',
+				'color' => '#dc3232',
+			],
+			[
+				'name'  => __( 'WordPress Warning Yellow', 'controlled-chaos' ),
+				'slug'  => 'cct-wp-warning-yellow',
+				'color' => '#ffb900',
 			]
-		] );
-		add_theme_support( 'editor-color-palette', $gutenberg_colors );
+		];
+
+		// Apply a filter to editor arguments.
+		$colors = apply_filters( 'cct_editor_colors', $color_args );
+
+		// Add color support.
+		add_theme_support( 'editor-color-palette', $colors );
 
 		add_theme_support( 'align-wide' );
 
@@ -278,8 +305,14 @@ final class Functions {
 			add_image_size( __( 'Meta Image', 'controlled-chaos' ), 1200, 630, true );
 		}
 
-		// Header support.
-		$header = [
+		/**
+		 * Add header image support.
+		 *
+		 * @since 1.0.0
+		 */
+
+		// Header arguments.
+		$header_args = [
 			'default-image'          => '',
 			'width'                  => 1280,
 			'height'                 => 549,
@@ -293,15 +326,32 @@ final class Functions {
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
 		];
+
+		// Apply a filter to header arguments.
+		$header = apply_filters( 'cct_header_image', $header_args );
+
+		// Add header support.
 		add_theme_support( 'custom-header', $header );
 
-		// Customizer logo upload support.
-		add_theme_support( 'custom-logo', [
-			'width'       => apply_filters( 'cct_logo_width', 180 ),
-			'height'      => apply_filters( 'cct_logo_height', 180 ),
-			'flex-width'  => apply_filters( 'cct_logo_flex_width', true ),
-			'flex-height' => apply_filters( 'cct_logo_flex_height', true )
-		 ] );
+		/**
+		 * Add logo support.
+		 *
+		 * @since 1.0.0
+		 */
+
+		// Custom logo support.
+		$logo_args = [
+			'width'       => 180,
+			'height'      => 180,
+			'flex-width'  => true,
+			'flex-height' => true
+		];
+
+		// Apply a filter to logo arguments.
+		$logo = apply_filters( 'cct_header_image', $logo_args );
+
+		// Add logo support.
+		add_theme_support( 'custom-logo', $logo );
 
 		 /**
 		 * Set content width.
@@ -319,9 +369,9 @@ final class Functions {
 		 * @since  1.0.0
 		 */
 		register_nav_menus( [
-			'main'   => apply_filters( 'cct_main_menu_name', esc_html__( 'Main Menu', 'controlled-chaos' ) ),
-			'footer' => apply_filters( 'cct_footer_menu_name', esc_html__( 'Footer Menu', 'controlled-chaos' ) ),
-			'social' => apply_filters( 'cct_social_menu_name', esc_html__( 'Social Menu', 'controlled-chaos' ) )
+			'main'   => __( 'Main Menu', 'controlled-chaos' ),
+			'footer' => __( 'Footer Menu', 'controlled-chaos' ),
+			'social' => __( 'Social Menu', 'controlled-chaos' )
 		] );
 
 		/**
@@ -339,6 +389,24 @@ final class Functions {
 		if ( class_exists( 'Jetpack' ) ) {
 			add_filter( 'jetpack_enable_opengraph', '__return_false', 99 );
 		}
+
+	}
+
+	/**
+	 * Theme support for disabling custom colors in the editor.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return bool Returns true for the color picker.
+	 */
+	public function editor_custom_color() {
+
+		$disable = add_theme_support( 'disable-custom-colors', [] );
+
+		// Apply a filter for conditionally disabling the picker.
+		$custom_colors = apply_filters( 'cct_editor_custom_colors', '__return_false' );
+
+		return $custom_colors;
 
 	}
 
@@ -386,11 +454,7 @@ final class Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_scripts() {
-
-
-
-	}
+	public function admin_scripts() {}
 
 	/**
 	 * Frontend styles.
@@ -437,11 +501,7 @@ final class Functions {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_styles() {
-
-
-
-	}
+	public function admin_styles() {}
 
 	/**
 	 * Login styles.
@@ -502,13 +562,13 @@ final class Functions {
  * @access public
  * @return object
  */
-function cctheme() {
+function cc_theme() {
 
-	$cctheme = Functions::get_instance();
+	$cc_theme = Functions::get_instance();
 
-	return $cctheme;
+	return $cc_theme;
 
 }
 
 // Run the Functions class.
-cctheme();
+cc_theme();
