@@ -104,7 +104,7 @@ ol {
 .sidebar-widgets ul,
 .entry-content ol,
 .sidebar-widgets ol {
-	margin-left: 1em;
+	padding-left: 1em;
 }
 
 /**
