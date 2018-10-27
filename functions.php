@@ -36,6 +36,23 @@ if ( ! defined( 'CCT_PLUGIN' ) ) {
 }
 
 /**
+ * Define the companion plugin prefix for filters and options.
+ *
+ * The default prefix of Controlled Chaos Plugin is `ccp`. If you
+ * have renamed the companion plugin then change the prefix here.
+ *
+ * Do not include a trailing hyphen (-) or an trailibg underscore (_).
+ *
+ * @link   https://github.com/ControlledChaos/controlled-chaos-plugin
+ *
+ * @since  1.0.0
+ * @return string Returns the prefix without trailing character.
+ */
+if ( is_plugin_active( CCT_PLUGIN ) && ! defined( 'CCT_PLUGIN_PREFIX' ) ) {
+	define( 'CCT_PLUGIN_PREFIX', 'ccp' );
+}
+
+/**
  * Controlled Chaos functions class.
  *
  * @since  1.0.0
