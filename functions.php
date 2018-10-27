@@ -20,6 +20,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /**
+ * Define the companion plugin path: directory and core file name.
+ *
+ * This theme is designed to coordinate with a companion plugin.
+ * Change the following path to the new name of the starter companion
+ * plugin, found at the following link.
+ *
+ * @link   https://github.com/ControlledChaos/controlled-chaos-plugin
+ *
+ * @since  1.0.0
+ * @return string Returns the plugin path.
+ */
+if ( ! defined( 'CCT_PLUGIN' ) ) {
+	define( 'CCT_PLUGIN', 'controlled-chaos-plugin/controlled-chaos-plugin.php' );
+}
+
+/**
  * Controlled Chaos functions class.
  *
  * @since  1.0.0
@@ -547,6 +563,9 @@ final class Functions {
 		if ( ! is_singular() ) {
 			require get_theme_file_path( '/template-parts/navigation/class-blog-nav.php' );
 		}
+
+		// Admin functiontionality and templates.
+		require_once get_theme_file_path( '/includes/admin/class-admin.php' );
 
 	}
 
