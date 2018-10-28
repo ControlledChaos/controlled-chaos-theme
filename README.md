@@ -7,6 +7,8 @@ An object-oriented WordPress starter theme or boilerplate.
 ![Gutenberg Ready](https://img.shields.io/badge/Gutenberg-ready-00a0d2.svg?style=flat-square)
 ![ACF Pro Ready](https://img.shields.io/badge/ACF%20Pro-ready-00d3ae.svg?style=flat-square)
 
+![](https://raw.githubusercontent.com/ControlledChaos/controlled-chaos-plugin/master/controlled-chaos-github-banner.jpg)
+
 **_I made some breaking changes. Check back soon!_**
 
 ## Experimental Only
