@@ -39,6 +39,10 @@ $canonical = apply_filters( 'cct_canonical_link', $link ); ?>
 } ?>
 <link href="<?php echo $canonical; ?>" rel="canonical" />
 <?php if ( is_search() ) { echo '<meta name="robots" content="noindex,nofollow" />'; } ?>
+<!-- Prefetch font URLs -->
+<link rel='dns-prefetch' href='//fonts.adobe.com'/>
+<link rel='dns-prefetch' href='//fonts.google.com'/>
+<!-- Prefetch WordPress URLs -->
 <link rel='dns-prefetch' href='//v0.wordpress.com'/>
 <link rel='dns-prefetch' href='//jetpack.wordpress.com'/>
 <link rel='dns-prefetch' href='//s0.wp.com'/>

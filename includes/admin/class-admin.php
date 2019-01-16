@@ -56,11 +56,16 @@ class Admin {
 	 */
 	private function __construct() {
 
-		// Register admin menus.
-		add_action( 'after_setup_theme', [ $this, 'admin_menus' ] );
+		// Add admin header if the companion plugin is not active.
+		if ( ! is_plugin_active( CCT_PLUGIN ) ) {
 
-		// Admin header.
-		add_action( 'in_admin_header', [ $this, 'admin_header' ] );
+			// Register admin menus.
+			add_action( 'after_setup_theme', [ $this, 'admin_menus' ] );
+
+			// Admin header.
+			add_action( 'in_admin_header', [ $this, 'admin_header' ] );
+
+		}
 
 	}
 

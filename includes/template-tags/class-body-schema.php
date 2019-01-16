@@ -31,7 +31,7 @@ class Body_Schema {
 	 */
 	public function schema() {
 
-		// Change page slugs and template names as needed
+		// Change page slugs and template names as needed.
 		if ( is_page( 'about' ) || is_page( 'about-us' ) || is_page_template( 'page-about.php' ) || is_page_template( 'about.php' ) ) {
 			$itemtype = esc_attr( 'AboutPage' );
 		} elseif ( is_page( 'contact' ) || is_page( 'contact-us' ) || is_page_template( 'page-contact.php' ) || is_page_template( 'contact.php' ) ) {
