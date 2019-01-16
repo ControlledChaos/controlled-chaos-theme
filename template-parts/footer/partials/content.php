@@ -21,7 +21,7 @@ do_action( 'cct_before_footer_content' );
 
         $copyright = apply_filters( 'cct_copyright_text', $copyright_text );
         echo $copyright, "\r";
-    
+
     echo '</div><!-- footer-content -->', "\r";
 
 do_action( 'cct_after_footer_content' );

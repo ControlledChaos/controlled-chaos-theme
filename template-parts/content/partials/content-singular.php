@@ -13,7 +13,7 @@ namespace CC_Theme;
 if ( ! defined( 'ABSPATH' ) ) exit;
 
     do_action( 'cct_before_main' ); ?>
-    
+
 	<main class="main" role="main" itemscope itemprop="mainContentOfPage">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<?php do_action( 'cct_before_article' ); ?>
