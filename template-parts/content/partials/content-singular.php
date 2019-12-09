@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<?php do_action( 'cct_before_article' ); ?>
         <article class="hentry" id="post-<?php the_ID(); ?>" role="article">
-            <header class="entry-header">
+            <header class="entry-header" itemprop="WPHeader">
                 <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
             </header>
             <div class="entry-content" itemprop="articleBody">
