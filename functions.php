@@ -14,7 +14,9 @@
 namespace CC_Theme\Functions;
 
 // Restrict direct access.
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // Get plugins path to check for active plugins.
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -110,7 +112,7 @@ final class Functions {
 		// Swap html 'no-js' class with 'js'.
 		add_action( 'wp_head', [ $this, 'js_detect' ], 0 );
 
-		// Controlled Chaos theme setup.
+		// Theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 
 		// Disable custom colors in the editor.
@@ -224,12 +226,6 @@ final class Functions {
 		 ] );
 
 		/**
-		 * Add editor support.
-		 *
-		 * @since 1.0.0
-		 */
-
-		/**
 		 * Color arguments.
 		 *
 		 * Some WordPress admin colors used here for demonstration.
@@ -334,7 +330,7 @@ final class Functions {
 		add_image_size( __( 'banner-sm', 'controlled-chaos' ), 640, 274, true );
 
 		// Add image size for meta tags if companion plugin is not activated.
-		if ( ! is_plugin_active( 'controlled-chaos-plugin/controlled-chaos-plugin.php' ) ) {
+		if ( ! is_plugin_active( CCT_PLUGIN ) ) {
 			add_image_size( __( 'Meta Image', 'controlled-chaos' ), 1200, 630, true );
 		}
 
@@ -352,6 +348,7 @@ final class Functions {
 			'flex-height'            => true,
 			'flex-width'             => true,
 			'uploads'                => true,
+			'video'                  => false,
 			'random-default'         => false,
 			'header-text'            => true,
 			'default-text-color'     => '',
