@@ -1,7 +1,7 @@
 <?php
 /**
  * Begin the <head> section.
- * 
+ *
  * Use the before_html hook for things such as
  * acf_form_head for Advanced Custom Fields
  * conditional frontend forms.

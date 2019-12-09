@@ -1,2 +1,1 @@
-<?php
-// Empty index for security purposes.
+<?php // Empty index for security purposes.

@@ -1,7 +1,7 @@
 <?php
 /**
  * No Sidebars template.
- * 
+ *
  * Template Name: No Sidebars
  * Template Post Type: post, page
  * Description: Does not load the primary or secondary sidebars.
@@ -24,7 +24,7 @@ class No_Sidebars {
 
 		// Begin HTML and get <head> section.
 		get_header();
-		
+
 		// Add a page content wrapper.
 		add_action( 'cct_before_post', [ $this, 'open_wrapper' ] );
 
@@ -33,7 +33,7 @@ class No_Sidebars {
 
 		/**
 		 * The get_siderbar function is still needed for other widget areas.
-		 * 
+		 *
 		 * Sidebar conditionally excluded in sidebar.php.
 		 */
 		get_sidebar();
@@ -50,7 +50,7 @@ class No_Sidebars {
 
 				$content = new Content;
 				echo $content->partials();
-				
+
 			}
 
 		} else {
@@ -58,7 +58,7 @@ class No_Sidebars {
 			include_once get_theme_file_path( '/template-parts/content/partials/content-none.php' );
 
 		}
-		
+
 		// End the page content wrapper.
 		add_action( 'cct_after_post', [ $this, 'close_wrapper' ] );
 
@@ -85,7 +85,7 @@ class No_Sidebars {
 	public function close_wrapper() {
 
 		echo '</div><!-- site-content -->';
-		
+
 	}
 
 }

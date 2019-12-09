@@ -37,7 +37,7 @@ class Register_Sidebars {
 		include_once get_theme_file_path( '/includes/widgets/partials/primary-sidebar.php' );
 
     }
-    
+
     /**
 	 * Register widget areas.
 	 *
