@@ -189,16 +189,38 @@ final class Functions {
 		load_theme_textdomain( 'controlled-chaos' );
 
 		/**
-		 * Add theme support.
+		 * Add title tag support.
+		 *
+		 * @since 1.0.0
+		 */
+		add_theme_support( 'title-tag' );
+
+		/**
+		 * Add background color & image support.
 		 *
 		 * @since 1.0.0
 		 */
 
-		// Browser title tag support.
-		add_theme_support( 'title-tag' );
+		// Background arguments.
+		$background = [
+			'default-image'          => '',
+			'default-preset'         => 'default', // 'default', 'fill', 'fit', 'repeat', 'custom'
+			'default-position-x'     => 'left',    // 'left', 'center', 'right'
+			'default-position-y'     => 'top',     // 'top', 'center', 'bottom'
+			'default-size'           => 'auto',    // 'auto', 'contain', 'cover'
+			'default-repeat'         => 'repeat',  // 'repeat-x', 'repeat-y', 'repeat', 'no-repeat'
+			'default-attachment'     => 'scroll',  // 'scroll', 'fixed'
+			'default-color'          => '#ffffff',
+			'wp-head-callback'       => '',
+			'admin-head-callback'    => '',
+			'admin-preview-callback' => '',
+		];
 
-		// Background color & image support.
-		add_theme_support( 'custom-background' );
+		// Apply a filter to background arguments.
+		$background = apply_filters( 'cct_custom_background', $background_args );
+
+		// Add background color & image support.
+		add_theme_support( 'custom-background', $background );
 
 		// RSS feed links support.
 		add_theme_support( 'automatic-feed-links' );
